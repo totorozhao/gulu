@@ -1,40 +1,60 @@
 <!doctype html>
 <html lang="zh-Hans">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>gulu</title>
-    <style>* {margin: 0; padding: 0; box-sizing: border-box;}
-    html {
-      --button-height: 32px;
-      --font-size: 14px;
-      --button-bg: white;
-      --button-active-bg: #eee;
-      --border-radius: 4px;
-      --color: #333;
-      --border-color: #999;
-      --border-color-hover: #666;
-    }
-    #app{
-        margin-top: 20px;
-    }</style>
+    <style>* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            --button-height: 32px;
+            --font-size: 14px;
+            --button-bg: white;
+            --button-active-bg: #eee;
+            --border-radius: 4px;
+            --color: #333;
+            --border-color: #999;
+            --border-color-hover: #666;
+        }
+
+        #app {
+            margin-top: 20px;
+        }
+        .box{
+            margin-top: 40px;
+        }</style>
 <link rel="stylesheet" href="/app.a6a4d504.css"></head>
+
 <body>
-<div id="app">
-    <g-button>vue.js造轮子</g-button>
-    <g-button icon="down" icon-position="left" :loading="loading1" @click="loading1 = !loading1">下载</g-button>
-    <g-button icon="arrow-left" icon-position="left">左侧</g-button>
-    <g-button icon="arrow-right" icon-position="right">右侧</g-button>
-   
-    <g-button-group>
-        <g-button icon="arrow-left" icon-position="left">上一页</g-button>
-        <g-button>1</g-button>
-        <g-button icon="arrow-right" icon-position="right">下一页</g-button>
-       
-    </g-button-group>
-</div>
-<script src="/app.a6a4d504.js"></script>
-<script src="//at.alicdn.com/t/font_1775585_dua2e2zt2m5.js"></script>
+    <div id="app">
+        <div class="box">
+            <g-button>vue.js造轮子</g-button>
+            <g-button icon="down" icon-position="left" :loading="loading1" @click="loading1 = !loading1">下载</g-button>
+            <g-button icon="arrow-left" icon-position="left">左侧</g-button>
+            <g-button icon="arrow-right" icon-position="right">右侧</g-button>
+
+            <g-button-group>
+                <g-button icon="arrow-left" icon-position="left">上一页</g-button>
+                <g-button>1</g-button>
+                <g-button icon="arrow-right" icon-position="right">下一页</g-button>
+            </g-button-group>
+        </div>
+        <div class="box">
+            <g-input v-model="inputmessage"></g-input>
+            <p>{{inputmessage}}</p>
+            <g-input value="name" readonly=""></g-input>
+            <g-input value="loadtion" disabled=""></g-input>
+            <g-input value="hello" error="请输入中文"></g-input>
+        </div>
+    </div>
+    <script src="/app.a6a4d504.js"></script>
+    <script src="//at.alicdn.com/t/font_1775585_26o81clo988.js"></script>
 </body>
+
 </html>

@@ -12670,7 +12670,138 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/input.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _icon = _interopRequireDefault(require("./icon"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'g-input',
+  components: {
+    Icon: _icon.default
+  },
+  props: {
+    value: {
+      type: String
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    error: {
+      type: String
+    }
+  }
+};
+exports.default = _default;
+        var $daf549 = exports.default || module.exports;
+      
+      if (typeof $daf549 === 'function') {
+        $daf549 = $daf549.options;
+      }
+    
+        /* template */
+        Object.assign($daf549, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "wrapper" },
+    [
+      _c("input", {
+        attrs: { type: "text", disabled: _vm.disabled, readonly: _vm.readonly },
+        domProps: { value: _vm.value },
+        on: {
+          input: function($event) {
+            return _vm.$emit("input", $event.target.value)
+          },
+          change: function($event) {
+            return _vm.$emit("change", $event.target.value)
+          },
+          blur: function($event) {
+            return _vm.$emit("blur", $event.target.value)
+          },
+          focus: function($event) {
+            return _vm.$emit("focus", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _vm.error
+        ? [
+            _c("Icon", { staticClass: "icon-error", attrs: { name: "error" } }),
+            _vm._v(" "),
+            _c("span", { staticClass: "errorMessage" }, [
+              _vm._v(_vm._s(_vm.error))
+            ])
+          ]
+        : _vm._e()
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-daf549",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$daf549', $daf549);
+          } else {
+            api.reload('$daf549', $daf549);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"./icon":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -12681,6 +12812,8 @@ var _icon = _interopRequireDefault(require("./icon"));
 
 var _buttonGroup = _interopRequireDefault(require("./buttonGroup"));
 
+var _input = _interopRequireDefault(require("./input.vue"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('g-button', _button.default);
@@ -12689,13 +12822,16 @@ _vue.default.component('g-icon', _icon.default);
 
 _vue.default.component('g-button-group', _buttonGroup.default);
 
+_vue.default.component('g-input', _input.default);
+
 new _vue.default({
   el: '#app',
   data: {
-    loading1: false
+    loading1: false,
+    inputmessage: 'hello'
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue","./input.vue":"src/input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
