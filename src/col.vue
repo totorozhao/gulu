@@ -1,6 +1,9 @@
 <template>
-    <div class="col" :class="[span && `col-${span}`,offset && `offset-${offset}`]">
-        <slot/>
+    <div class="col" :class="[span && `col-${span}`,offset && `offset-${offset}`]"
+    :style="{paddingLeft:gutter/2+'px',paddingRight:gutter/2+'px'}">
+        <div style="border: 1px solid rgb(153, 138, 138);height:inherit">
+            <slot/>
+        </div>
     </div>
 </template>
 <script>
@@ -12,6 +15,7 @@ export default {
       offset: {
         type: [Number, String]
       },
+      gutter:[String,Number]
     }
     
 }
@@ -19,7 +23,6 @@ export default {
 <style lang="scss" scoped>
 .col{
     height: 50px;
-    background: #edf4fb;
     width: 50%;
     $class-prefix: col-;
      @for $n from 1 through 24 {
@@ -33,7 +36,7 @@ export default {
         margin-left: ($n / 24) * 100%;
       }
     }
-      border: 1px solid rgb(153, 138, 138);
+      
 }
 
 </style>

@@ -12813,7 +12813,12 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+var _default = {
+  name: 'GuluRow',
+  props: {
+    gutter: [String, Number]
+  }
+};
 exports.default = _default;
         var $141698 = exports.default || module.exports;
       
@@ -12827,7 +12832,18 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    {
+      staticClass: "row",
+      style: {
+        marginRight: -_vm.gutter / 2 + "px",
+        marginLeft: -_vm.gutter / 2 + "px"
+      }
+    },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12874,6 +12890,9 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
 var _default = {
   props: {
     span: {
@@ -12881,7 +12900,8 @@ var _default = {
     },
     offset: {
       type: [Number, String]
-    }
+    },
+    gutter: [String, Number]
   }
 };
 exports.default = _default;
@@ -12904,10 +12924,25 @@ exports.default = _default;
       class: [
         _vm.span && "col-" + _vm.span,
         _vm.offset && "offset-" + _vm.offset
-      ]
+      ],
+      style: {
+        paddingLeft: _vm.gutter / 2 + "px",
+        paddingRight: _vm.gutter / 2 + "px"
+      }
     },
-    [_vm._t("default")],
-    2
+    [
+      _c(
+        "div",
+        {
+          staticStyle: {
+            border: "1px solid rgb(153, 138, 138)",
+            height: "inherit"
+          }
+        },
+        [_vm._t("default")],
+        2
+      )
+    ]
   )
 }
 var staticRenderFns = []
