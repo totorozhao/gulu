@@ -8,6 +8,11 @@ export default {
     name:'GuluRow',
     props:{
         gutter:[String,Number]
+    },
+    mounted(){
+        this.$children.forEach(e =>{
+            e.gutter=this.gutter
+        })
     }
 }
 </script>

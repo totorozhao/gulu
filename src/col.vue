@@ -15,7 +15,12 @@ export default {
       offset: {
         type: [Number, String]
       },
-      gutter:[String,Number]
+    //   gutter:[String,Number]
+    },
+    data(){
+        return{
+         gutter:0 
+        }
     }
     
 }

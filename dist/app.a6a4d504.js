@@ -12817,6 +12817,13 @@ var _default = {
   name: 'GuluRow',
   props: {
     gutter: [String, Number]
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    this.$children.forEach(function (e) {
+      e.gutter = _this.gutter;
+    });
   }
 };
 exports.default = _default;
@@ -12900,8 +12907,13 @@ var _default = {
     },
     offset: {
       type: [Number, String]
-    },
-    gutter: [String, Number]
+    } //   gutter:[String,Number]
+
+  },
+  data: function data() {
+    return {
+      gutter: 0
+    };
   }
 };
 exports.default = _default;
