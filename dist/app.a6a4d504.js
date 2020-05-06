@@ -12818,6 +12818,15 @@ var _default = {
   props: {
     gutter: [String, Number]
   },
+  computed: {
+    rowStyle: function rowStyle() {
+      var gutter = this.gutter;
+      return {
+        marginRight: -gutter / 2 + 'px',
+        marginLeft: -gutter / 2 + 'px'
+      };
+    }
+  },
   mounted: function mounted() {
     var _this = this;
 
@@ -12841,13 +12850,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "row",
-      style: {
-        marginRight: -_vm.gutter / 2 + "px",
-        marginLeft: -_vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "row", style: _vm.rowStyle },
     [_vm._t("default")],
     2
   )
@@ -12899,7 +12902,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   props: {
     span: {
@@ -12909,6 +12911,19 @@ var _default = {
       type: [Number, String]
     } //   gutter:[String,Number]
 
+  },
+  computed: {
+    colClass: function colClass() {
+      var span = this.span,
+          offset = this.offset;
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
+    },
+    colStyle: function colStyle() {
+      return {
+        paddingLeft: this.gutter / 2 + 'px',
+        paddingRight: this.gutter / 2 + 'px'
+      };
+    }
   },
   data: function data() {
     return {
@@ -12931,17 +12946,7 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "col",
-      class: [
-        _vm.span && "col-" + _vm.span,
-        _vm.offset && "offset-" + _vm.offset
-      ],
-      style: {
-        paddingLeft: _vm.gutter / 2 + "px",
-        paddingRight: _vm.gutter / 2 + "px"
-      }
-    },
+    { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
     [
       _c(
         "div",

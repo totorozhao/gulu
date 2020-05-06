@@ -1,5 +1,5 @@
 <template>
-    <div class="row" :style="{marginRight:-gutter/2+'px',marginLeft:-gutter/2+'px'}" >
+    <div class="row" :style="rowStyle" >
         <slot/>
     </div>
 </template>
@@ -8,6 +8,15 @@ export default {
     name:'GuluRow',
     props:{
         gutter:[String,Number]
+    },
+     computed:{
+        rowStyle(){
+            let {gutter} = this;
+            return {
+                marginRight:-gutter/2+'px',
+                marginLeft:-gutter/2+'px'
+            }
+        }
     },
     mounted(){
         this.$children.forEach(e =>{
