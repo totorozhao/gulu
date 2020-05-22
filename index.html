@@ -32,6 +32,28 @@
             margin-top: 40px;
             overflow: hidden
         }
+
+        .grid-demo {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .row {
+            margin-top: 20px;
+        }
+
+        .bg-dark {
+            background: rgb(24, 144, 255);
+        }
+
+        .bg-light {
+            background: rgb(64, 169, 255);
+        }
     </style>
 </head>
 
@@ -56,26 +78,58 @@
             <g-input value="loadtion" disabled></g-input>
             <g-input value="hello" error='请输入中文'></g-input>
         </div>
-        <div class="box" style="width:80vw;margin:10px auto;border: 1px solid rgb(153, 138, 138);">
+        <div class="box" style="width:80vw;margin:10px auto;">
             <g-row>
-                <g-col>1</g-col>
-                <g-col>2</g-col>
+                <g-col :span='6'>
+                    <div class="grid-demo bg-dark">Col-6</div>
+                </g-col>
+                <g-col :span='6'>
+                    <div class="grid-demo bg-light">Col-6</div>
+                </g-col>
+                <g-col :span='6'>
+                    <div class="grid-demo bg-dark">Col-6</div>
+                </g-col>
+                <g-col :span='6'>
+                    <div class="grid-demo bg-light">Col-6</div>
+                </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span='2' :gutter="20">1</g-col>
-                <g-col span='4' :gutter="20">2</g-col>
-                <g-col span='18' :gutter="20">3</g-col>
+                <g-col span='6'>
+                    <div class="grid-demo bg-light">Col-6</div>
+                </g-col>
+                <g-col span='6'>
+                    <div class="grid-demo bg-dark">Col-6</div>
+                </g-col>
+                <g-col span='6'>
+                    <div class="grid-demo bg-light">Col-6</div>
+                </g-col>
+                <g-col span='6'>
+                    <div class="grid-demo bg-dark">Col-6</div>
+                </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span='2'>1</g-col>
-                <g-col span='8' offset="2">2</g-col>
-                <g-col span='10' offset="2">3</g-col>
+                <g-col span='6' :gutter="20">
+                    <div class="grid-demo bg-dark">Col-2</div>
+                </g-col>
+                <g-col span='4' :gutter="20">
+                    <div class="grid-demo bg-dark">Col-4</div>
+                </g-col>
+                <g-col span='14' :gutter="20">
+                    <div class="grid-demo bg-dark">Col-18</div>
+                </g-col>
             </g-row>
-            <g-row>
-                <g-col span='2'>1</g-col>
-                <g-col span='6' offset="4">2</g-col>
-                <g-col span='6' offset="6">3</g-col>
+            <g-row :gutter="20">
+                <g-col span='4'>
+                    <div class="grid-demo bg-dark">Col-4</div>
+                </g-col>
+                <g-col span='8' offset="2">
+                    <div class="grid-demo bg-dark">Col-8</div>
+                </g-col>
+                <g-col span='8' offset="2">
+                    <div class="grid-demo bg-dark">Col-8</div>
+                </g-col>
             </g-row>
+
         </div>
     </div>
     <script src="src/app.js"></script>

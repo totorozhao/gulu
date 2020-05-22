@@ -12900,8 +12900,6 @@ exports.default = void 0;
 //
 //
 //
-//
-//
 var _default = {
   props: {
     span: {
@@ -12947,19 +12945,8 @@ exports.default = _default;
   return _c(
     "div",
     { staticClass: "col", class: _vm.colClass, style: _vm.colStyle },
-    [
-      _c(
-        "div",
-        {
-          staticStyle: {
-            border: "1px solid rgb(153, 138, 138)",
-            height: "inherit"
-          }
-        },
-        [_vm._t("default")],
-        2
-      )
-    ]
+    [_vm._t("default")],
+    2
   )
 }
 var staticRenderFns = []
