@@ -10,6 +10,7 @@ import Header from './header.vue'
 import Content from './content.vue'
 import Sider from './sider.vue'
 import Footer from './footer.vue'
+import plugin from './plugin'
 Vue.component('g-button',Button)
 Vue.component('g-icon',icon)
 Vue.component('g-button-group',ButtonGroup)
@@ -21,10 +22,21 @@ Vue.component('g-header',Header)
 Vue.component('g-content',Content)
 Vue.component('g-sider',Sider)
 Vue.component('g-footer',Footer)
+Vue.use(plugin)
+
+
 new Vue({
     el:'#app',   
     data:{
         loading1:false,
         inputmessage:'hello'
+    },
+    created(){
+
+    },
+    methods:{
+        showToast(){
+            this.$toast('我是message')
+        }
     }
 })

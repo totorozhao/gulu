@@ -262,3 +262,26 @@
   margin-left: 100%;
 }
 
+.layout[data-v-eedf3d] {
+  display: flex;
+  flex-direction: column;
+}
+.layout.hasSider[data-v-eedf3d] {
+    flex-direction: row;
+}
+
+.content[data-v-d05418] {
+  flex-grow: 1;
+}
+
+.toast[data-v-167075] {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  line-height: 1.8;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
