@@ -25,7 +25,17 @@ new Vue({
     },
     methods: {
         showToast() {
-            this.$toast('<p>保留所有权利。</p>')
+            this.$toast('<p>保留所有权利。</p>', {
+                text: '知道了',
+                position: 'middle',
+                enableHtml: true,
+                closeButton: {
+                    text: '关闭',
+                    callback: () => {
+                        console.log('我知道了')
+                    }
+                }
+            })
         }
     }
 })

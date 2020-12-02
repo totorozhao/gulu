@@ -275,7 +275,30 @@
   padding: 0 16px;
   position: fixed;
   left: 50%;
-  transform: translate(-50%);
   white-space: nowrap;
+}
+.toast .message[data-v-da4773] {
+    padding: 4px 0;
+}
+.toast .close[data-v-da4773] {
+    flex-shrink: 0;
+    padding-left: 16px;
+}
+.toast .line[data-v-da4773] {
+    height: 100%;
+    border-left: 1px solid #666;
+    margin-left: 8px;
+}
+.toast.position-top[data-v-da4773] {
+    top: 0;
+    transform: translate(-50%);
+}
+.toast.position-middle[data-v-da4773] {
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.toast.position-bottom[data-v-da4773] {
+    bottom: 0;
+    transform: translate(-50%);
 }
 

@@ -12989,6 +12989,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
 //
 //
 //
@@ -13011,12 +13017,11 @@ var _default = {
     },
     closeButton: {
       type: Object,
+      //  对象的话 注意引用，用方法包裹返回对象
       default: function _default() {
         return {
           text: '关闭',
-          callback: function callback(toast) {
-            toast.close();
-          }
+          callback: undefined
         };
       }
     },
@@ -13024,27 +13029,55 @@ var _default = {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: "top",
+      validator: function validator(value) {
+        return ['top', 'middle', 'bottom'].indexOf(value) > -1;
+      }
     }
   },
-  created: function created() {
-    console.log(this.closeButton, 'dd');
+  computed: {
+    toastClass: function toastClass() {
+      return _defineProperty({}, "position-".concat(this.position), true);
+    }
   },
+  created: function created() {},
   mounted: function mounted() {
-    var _this = this;
-
-    if (this.autoClose) {
-      setTimeout(function () {
-        _this.close();
-      }, this.autoCloseDelay * 1000);
-    }
+    this.execAutoClose();
+    this.updateStyle();
   },
   methods: {
-    close: function close() {
-      this.$el.remove(); //
+    execAutoClose: function execAutoClose() {
+      var _this = this;
 
-      this.$destroy();
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this.close();
+        }, this.autoCloseDelay * 1000);
+      }
     },
-    closeButton: function closeButton() {}
+    updateStyle: function updateStyle() {
+      var _this2 = this;
+
+      this.$nextTick(function () {
+        console.log(_this2.$refs.wrapper);
+        _this2.$refs.line.style.height = "".concat(_this2.$refs.wrapper.getBoundingClientRect().height, "px");
+      });
+    },
+    close: function close() {
+      this.$el.remove(); //移除
+
+      this.$destroy(); //销毁
+    },
+    onClickClose: function onClickClose() {
+      this.close();
+
+      if (this.closeButton && typeof this.closeButton.callback === 'function') {
+        this.closeButton.callback(this); // this === toast实例
+      }
+    }
   }
 };
 exports.default = _default;
@@ -13062,19 +13095,31 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "toast" },
+    { ref: "wrapper", staticClass: "toast", class: _vm.toastClass },
     [
-      !_vm.enableHtml
-        ? _vm._t("default")
-        : _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
+      _c(
+        "div",
+        { staticClass: "message" },
+        [
+          !_vm.enableHtml
+            ? _vm._t("default")
+            : _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) }
+              })
+        ],
+        2
+      ),
       _vm._v(" "),
-      _vm.closeButton.text
-        ? _c("span", { on: { click: _vm.closeButton } }, [
-            _vm._v(_vm._s(_vm.closeButton.text))
-          ])
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v(_vm._s(_vm.closeButton.text))]
+          )
         : _vm._e()
-    ],
-    2
+    ]
   )
 }
 var staticRenderFns = []
@@ -13124,18 +13169,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var _default = {
   install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message) {
+    Vue.prototype.$toast = function (message, options) {
       // const div = document.createElement('div')
       // div.textContent = options
       // document.body.append(div)
       var Constructor = Vue.extend(_toast.default);
       var toast = new Constructor({
-        propsData: {
-          text: '知道了',
-          callback: function callback() {
-            console.log('我知道了');
-          }
-        }
+        propsData: options
       });
       toast.$slots.default = [message];
       toast.$mount(); //mount 之后生命周期的钩子才会执行
@@ -13188,7 +13228,17 @@ new _vue.default({
   },
   methods: {
     showToast: function showToast() {
-      this.$toast('<p>保留所有权利。</p>');
+      this.$toast('<p>保留所有权利。</p>', {
+        text: '知道了',
+        position: 'middle',
+        enableHtml: true,
+        closeButton: {
+          text: '关闭',
+          callback: function callback() {
+            console.log('我知道了');
+          }
+        }
+      });
     }
   }
 });
