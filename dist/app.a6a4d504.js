@@ -12443,14 +12443,14 @@ var _default = {
   props: ['name']
 };
 exports.default = _default;
-        var $b82670 = exports.default || module.exports;
+        var $7e8774 = exports.default || module.exports;
       
-      if (typeof $b82670 === 'function') {
-        $b82670 = $b82670.options;
+      if (typeof $7e8774 === 'function') {
+        $7e8774 = $7e8774.options;
       }
     
         /* template */
-        Object.assign($b82670, (function () {
+        Object.assign($7e8774, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12466,7 +12466,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-b82670",
+            _scopeId: "data-v-7e8774",
             functional: undefined
           };
         })());
@@ -12479,9 +12479,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$b82670', $b82670);
+            api.createRecord('$7e8774', $7e8774);
           } else {
-            api.reload('$b82670', $b82670);
+            api.reload('$7e8774', $7e8774);
           }
         }
 
@@ -12535,14 +12535,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $f51bcc = exports.default || module.exports;
+        var $1be662 = exports.default || module.exports;
       
-      if (typeof $f51bcc === 'function') {
-        $f51bcc = $f51bcc.options;
+      if (typeof $1be662 === 'function') {
+        $1be662 = $1be662.options;
       }
     
         /* template */
-        Object.assign($f51bcc, (function () {
+        Object.assign($1be662, (function () {
           var render = function() {
   var _obj
   var _vm = this
@@ -12583,7 +12583,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f51bcc",
+            _scopeId: "data-v-1be662",
             functional: undefined
           };
         })());
@@ -12596,9 +12596,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$f51bcc', $f51bcc);
+            api.createRecord('$1be662', $1be662);
           } else {
-            api.reload('$f51bcc', $f51bcc);
+            api.reload('$1be662', $1be662);
           }
         }
 
@@ -12623,14 +12623,14 @@ exports.default = void 0;
 //
 var _default = {};
 exports.default = _default;
-        var $845d49 = exports.default || module.exports;
+        var $fc486c = exports.default || module.exports;
       
-      if (typeof $845d49 === 'function') {
-        $845d49 = $845d49.options;
+      if (typeof $fc486c === 'function') {
+        $fc486c = $fc486c.options;
       }
     
         /* template */
-        Object.assign($845d49, (function () {
+        Object.assign($fc486c, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12644,7 +12644,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-845d49",
+            _scopeId: "data-v-fc486c",
             functional: undefined
           };
         })());
@@ -12657,9 +12657,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$845d49', $845d49);
+            api.createRecord('$fc486c', $fc486c);
           } else {
-            api.reload('$845d49', $845d49);
+            api.reload('$fc486c', $fc486c);
           }
         }
 
@@ -12720,14 +12720,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $daf549 = exports.default || module.exports;
+        var $529e8c = exports.default || module.exports;
       
-      if (typeof $daf549 === 'function') {
-        $daf549 = $daf549.options;
+      if (typeof $529e8c === 'function') {
+        $529e8c = $529e8c.options;
       }
     
         /* template */
-        Object.assign($daf549, (function () {
+        Object.assign($529e8c, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12775,7 +12775,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-daf549",
+            _scopeId: "data-v-529e8c",
             functional: undefined
           };
         })());
@@ -12788,9 +12788,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$daf549', $daf549);
+            api.createRecord('$529e8c', $529e8c);
           } else {
-            api.reload('$daf549', $daf549);
+            api.reload('$529e8c', $529e8c);
           }
         }
 
@@ -12836,14 +12836,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $141698 = exports.default || module.exports;
+        var $671f9f = exports.default || module.exports;
       
-      if (typeof $141698 === 'function') {
-        $141698 = $141698.options;
+      if (typeof $671f9f === 'function') {
+        $671f9f = $671f9f.options;
       }
     
         /* template */
-        Object.assign($141698, (function () {
+        Object.assign($671f9f, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12862,7 +12862,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-141698",
+            _scopeId: "data-v-671f9f",
             functional: undefined
           };
         })());
@@ -12875,9 +12875,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$141698', $141698);
+            api.createRecord('$671f9f', $671f9f);
           } else {
-            api.reload('$141698', $141698);
+            api.reload('$671f9f', $671f9f);
           }
         }
 
@@ -12930,14 +12930,14 @@ var _default = {
   }
 };
 exports.default = _default;
-        var $f8f308 = exports.default || module.exports;
+        var $2ad5c1 = exports.default || module.exports;
       
-      if (typeof $f8f308 === 'function') {
-        $f8f308 = $f8f308.options;
+      if (typeof $2ad5c1 === 'function') {
+        $2ad5c1 = $2ad5c1.options;
       }
     
         /* template */
-        Object.assign($f8f308, (function () {
+        Object.assign($2ad5c1, (function () {
           var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -12956,7 +12956,7 @@ render._withStripped = true
             render: render,
             staticRenderFns: staticRenderFns,
             _compiled: true,
-            _scopeId: "data-v-f8f308",
+            _scopeId: "data-v-2ad5c1",
             functional: undefined
           };
         })());
@@ -12969,9 +12969,9 @@ render._withStripped = true
         if (api.compatible) {
           module.hot.accept();
           if (!module.hot.data) {
-            api.createRecord('$f8f308', $f8f308);
+            api.createRecord('$2ad5c1', $2ad5c1);
           } else {
-            api.reload('$f8f308', $f8f308);
+            api.reload('$2ad5c1', $2ad5c1);
           }
         }
 
@@ -12982,7 +12982,170 @@ render._withStripped = true
       
       }
     })();
-},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/toast.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'toast',
+  props: {
+    // 自动关闭
+    autoClose: {
+      type: Boolean,
+      default: false
+    },
+    // 关闭时间
+    autoCloseDelay: {
+      type: Number,
+      default: 3
+    },
+    closeButton: {
+      type: Object,
+      default: function _default() {
+        return {
+          text: '关闭',
+          callback: function callback(toast) {
+            toast.close();
+          }
+        };
+      }
+    },
+    //enableHtml 支持html标签
+    enableHtml: {
+      type: Boolean,
+      default: false
+    }
+  },
+  created: function created() {
+    console.log(this.closeButton, 'dd');
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    if (this.autoClose) {
+      setTimeout(function () {
+        _this.close();
+      }, this.autoCloseDelay * 1000);
+    }
+  },
+  methods: {
+    close: function close() {
+      this.$el.remove(); //
+
+      this.$destroy();
+    },
+    closeButton: function closeButton() {}
+  }
+};
+exports.default = _default;
+        var $da4773 = exports.default || module.exports;
+      
+      if (typeof $da4773 === 'function') {
+        $da4773 = $da4773.options;
+      }
+    
+        /* template */
+        Object.assign($da4773, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "toast" },
+    [
+      !_vm.enableHtml
+        ? _vm._t("default")
+        : _c("div", { domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) } }),
+      _vm._v(" "),
+      _vm.closeButton.text
+        ? _c("span", { on: { click: _vm.closeButton } }, [
+            _vm._v(_vm._s(_vm.closeButton.text))
+          ])
+        : _vm._e()
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-da4773",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$da4773', $da4773);
+          } else {
+            api.reload('$da4773', $da4773);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/plugin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _toast = _interopRequireDefault(require("./toast"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var _default = {
+  install: function install(Vue, options) {
+    Vue.prototype.$toast = function (message) {
+      // const div = document.createElement('div')
+      // div.textContent = options
+      // document.body.append(div)
+      var Constructor = Vue.extend(_toast.default);
+      var toast = new Constructor({
+        propsData: {
+          text: '知道了',
+          callback: function callback() {
+            console.log('我知道了');
+          }
+        }
+      });
+      toast.$slots.default = [message];
+      toast.$mount(); //mount 之后生命周期的钩子才会执行
+
+      document.body.appendChild(toast.$el);
+    };
+  }
+};
+exports.default = _default;
+},{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -12999,6 +13162,8 @@ var _row = _interopRequireDefault(require("./row.vue"));
 
 var _col = _interopRequireDefault(require("./col.vue"));
 
+var _plugin = _interopRequireDefault(require("./plugin.js"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue.default.component('g-button', _button.default);
@@ -13013,14 +13178,21 @@ _vue.default.component('g-row', _row.default);
 
 _vue.default.component('g-col', _col.default);
 
+_vue.default.use(_plugin.default);
+
 new _vue.default({
   el: '#app',
   data: {
     loading1: false,
     inputmessage: 'hello'
+  },
+  methods: {
+    showToast: function showToast() {
+      this.$toast('<p>保留所有权利。</p>');
+    }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./plugin.js":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13048,7 +13220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "8326" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56246" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

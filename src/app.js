@@ -5,16 +5,27 @@ import ButtonGroup from './buttonGroup'
 import Input from './input.vue'
 import Row from './row.vue'
 import Col from './col.vue'
-Vue.component('g-button',Button)
-Vue.component('g-icon',icon)
-Vue.component('g-button-group',ButtonGroup)
-Vue.component('g-input',Input)
-Vue.component('g-row',Row)
-Vue.component('g-col',Col)
+
+import plugin from './plugin.js'
+
+
+
+Vue.component('g-button', Button)
+Vue.component('g-icon', icon)
+Vue.component('g-button-group', ButtonGroup)
+Vue.component('g-input', Input)
+Vue.component('g-row', Row)
+Vue.component('g-col', Col)
+Vue.use(plugin)
 new Vue({
-    el:'#app',   
-    data:{
-        loading1:false,
-        inputmessage:'hello'
+    el: '#app',
+    data: {
+        loading1: false,
+        inputmessage: 'hello'
+    },
+    methods: {
+        showToast() {
+            this.$toast('<p>保留所有权利。</p>')
+        }
     }
 })

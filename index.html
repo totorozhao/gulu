@@ -12,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         html {
             --button-height: 32px;
             --font-size: 14px;
@@ -23,16 +23,16 @@
             --border-color: #999;
             --border-color-hover: #666;
         }
-
+        
         #app {
             margin-top: 20px;
         }
-
+        
         .box {
             margin-top: 40px;
             overflow: hidden
         }
-
+        
         .grid-demo {
             height: 40px;
             display: flex;
@@ -42,15 +42,15 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.85);
         }
-
+        
         .row {
             margin-top: 20px;
         }
-
+        
         .bg-dark {
             background: rgb(24, 144, 255);
         }
-
+        
         .bg-light {
             background: rgb(64, 169, 255);
         }
@@ -131,8 +131,12 @@
             </g-row>
 
         </div>
+
+        <div class="box">
+            <g-button @click="showToast">点我弹框</g-button>
+        </div>
     </div>
-    <script src="src/app.js"></script>
+    <script src="src/app.js" type="module"></script>
     <script src="//at.alicdn.com/t/font_1775585_26o81clo988.js"></script>
 </body>
 
