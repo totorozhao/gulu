@@ -13167,24 +13167,41 @@ var _toast = _interopRequireDefault(require("./toast"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var currentToast;
 var _default = {
-  install: function install(Vue, options) {
+  install: function install(Vue) {
     Vue.prototype.$toast = function (message, options) {
       // const div = document.createElement('div')
       // div.textContent = options
       // document.body.append(div)
-      var Constructor = Vue.extend(_toast.default);
-      var toast = new Constructor({
-        propsData: options
-      });
-      toast.$slots.default = [message];
-      toast.$mount(); //mount 之后生命周期的钩子才会执行
+      if (currentToast) {
+        currentToast.close();
+      }
 
-      document.body.appendChild(toast.$el);
+      currentToast = createToast({
+        Vue: Vue,
+        message: message,
+        options: options
+      });
     };
   }
 };
 exports.default = _default;
+
+function createToast(_ref) {
+  var Vue = _ref.Vue,
+      message = _ref.message,
+      options = _ref.options;
+  var Constructor = Vue.extend(_toast.default);
+  var toast = new Constructor({
+    propsData: options
+  });
+  toast.$slots.default = [message];
+  toast.$mount(); //mount 之后生命周期的钩子才会执行
+
+  document.body.appendChild(toast.$el);
+  return toast;
+}
 },{"./toast":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
