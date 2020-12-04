@@ -24,10 +24,10 @@ new Vue({
         inputmessage: 'hello'
     },
     methods: {
-        showToast() {
+        showToast(position) {
             this.$toast('<p>保留所有权利。</p>', {
                 text: '知道了',
-                position: 'middle',
+                position: position,
                 enableHtml: true,
                 closeButton: {
                     text: '关闭',

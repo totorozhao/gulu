@@ -6,7 +6,10 @@ export default {
             // const div = document.createElement('div')
             // div.textContent = options
             // document.body.append(div)
-            if (currentToast) { currentToast.close() }
+            if (currentToast) {
+                currentToast.close();
+                currentToast = null
+            }
             currentToast = createToast({ Vue, message, options })
         }
     }

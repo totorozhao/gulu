@@ -13002,6 +13002,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 var _default = {
   name: 'toast',
   props: {
@@ -13032,7 +13034,7 @@ var _default = {
     },
     position: {
       type: String,
-      default: "top",
+      default: 'middle',
       validator: function validator(value) {
         return ['top', 'middle', 'bottom'].indexOf(value) > -1;
       }
@@ -13093,10 +13095,8 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "wrapper", staticClass: "toast", class: _vm.toastClass },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClass }, [
+    _c("div", { ref: "wrapper", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -13119,8 +13119,8 @@ exports.default = _default;
             [_vm._v(_vm._s(_vm.closeButton.text))]
           )
         : _vm._e()
-    ]
-  )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13176,6 +13176,7 @@ var _default = {
       // document.body.append(div)
       if (currentToast) {
         currentToast.close();
+        currentToast = null;
       }
 
       currentToast = createToast({
@@ -13244,10 +13245,10 @@ new _vue.default({
     inputmessage: 'hello'
   },
   methods: {
-    showToast: function showToast() {
+    showToast: function showToast(position) {
       this.$toast('<p>保留所有权利。</p>', {
         text: '知道了',
-        position: 'middle',
+        position: position,
         enableHtml: true,
         closeButton: {
           text: '关闭',
@@ -13287,7 +13288,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51738" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
