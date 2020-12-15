@@ -276,6 +276,13 @@
   justify-content: flex-start;
   align-items: center;
   border: 1px solid #ccc;
+  position: relative;
+}
+.tabs-head > .line[data-v-4f3db4] {
+    width: 100px;
+    border-bottom: 1px solid #157cdc;
+    position: absolute;
+    bottom: 0;
 }
 
 .tabs-pane.actived[data-v-a2c996] {

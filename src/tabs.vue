@@ -8,9 +8,14 @@
     import Vue from 'vue'
     export default {
         name: 'Tabs',
+        props:{
+            selected:{
+                type:String||Number
+            }
+        },
         provide(){
             return {
-                eventBus:this.eventBus
+                eventBus:this.eventBus,
             }
         },
         data(){
@@ -18,11 +23,10 @@
                eventBus:new Vue()  
             }
         },
-        created(){
+        mounted(){
+            this.eventBus.$emit('updata:selectedTab',this.selected)
         },
-        methods:{
-           
-        }
+       
     }
 </script>
 <style scoped lang="scss">

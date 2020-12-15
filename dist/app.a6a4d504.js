@@ -13002,6 +13002,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 var _default = {
   name: 'Tabs',
+  props: {
+    selected: {
+      type: String || Number
+    }
+  },
   provide: function provide() {
     return {
       eventBus: this.eventBus
@@ -13012,8 +13017,9 @@ var _default = {
       eventBus: new _vue.default()
     };
   },
-  created: function created() {},
-  methods: {}
+  mounted: function mounted() {
+    this.eventBus.$emit('updata:selectedTab', this.selected);
+  }
 };
 exports.default = _default;
         var $9c0133 = exports.default || module.exports;
@@ -13106,7 +13112,7 @@ var _default = {
   },
   methods: {
     xxx: function xxx() {
-      this.eventBus.$emit('updata:selectedTab', this.name);
+      this.eventBus.$emit('updata:selectedTab', this.name, this);
     }
   }
 };
@@ -13176,10 +13182,24 @@ exports.default = void 0;
 //
 //
 //
+//
 var _default = {
-  name: 'TabsHead',
-  inject: ['eventBus'],
-  created: function created() {}
+  name: "TabsHead",
+  inject: ["eventBus"],
+  mounted: function mounted() {
+    var _this = this;
+
+    this.eventBus.$on("updata:selectedTab", function (name, vm) {
+      var _vm$$el$getBoundingCl = vm.$el.getBoundingClientRect(),
+          width = _vm$$el$getBoundingCl.width,
+          height = _vm$$el$getBoundingCl.height,
+          top = _vm$$el$getBoundingCl.top,
+          left = _vm$$el$getBoundingCl.left;
+
+      _this.$refs.line.style.width = "".concat(width, "px");
+      _this.$refs.line.style.left = "".concat(left, "px");
+    });
+  }
 };
 exports.default = _default;
         var $4f3db4 = exports.default || module.exports;
@@ -13194,7 +13214,16 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "tabs-head" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    { staticClass: "tabs-head" },
+    [
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _vm._t("default")
+    ],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13670,7 +13699,8 @@ new _vue.default({
   el: '#app',
   data: {
     loading1: false,
-    inputmessage: 'hello'
+    inputmessage: 'hello',
+    selectedTab: 'hero'
   },
   methods: {
     showToast: function showToast(position) {

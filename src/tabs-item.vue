@@ -34,7 +34,7 @@
         },
         methods:{
             xxx(){
-                this.eventBus.$emit('updata:selectedTab',this.name)
+                this.eventBus.$emit('updata:selectedTab',this.name,this)
             }
         }
     }

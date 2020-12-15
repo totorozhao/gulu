@@ -33,7 +33,8 @@ new Vue({
     el: '#app',
     data: {
         loading1: false,
-        inputmessage: 'hello'
+        inputmessage: 'hello',
+        selectedTab: 'hero'
     },
     methods: {
         showToast(position) {
