@@ -262,6 +262,26 @@
   margin-left: 100%;
 }
 
+.tabs-item[data-v-707ddc] {
+  padding: 1em;
+  cursor: pointer;
+}
+.tabs-item.actived[data-v-707ddc] {
+    color: red;
+}
+
+.tabs-head[data-v-4f3db4] {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #ccc;
+}
+
+.tabs-pane.actived[data-v-a2c996] {
+  color: red;
+}
+
 @keyframes slide-up-data-v-da4773 {
 0% {
     opacity: 0;

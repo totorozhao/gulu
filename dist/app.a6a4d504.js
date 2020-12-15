@@ -12982,6 +12982,414 @@ render._withStripped = true
       
       }
     })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _vue = _interopRequireDefault(require("vue"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'Tabs',
+  provide: function provide() {
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  data: function data() {
+    return {
+      eventBus: new _vue.default()
+    };
+  },
+  created: function created() {},
+  methods: {}
+};
+exports.default = _default;
+        var $9c0133 = exports.default || module.exports;
+      
+      if (typeof $9c0133 === 'function') {
+        $9c0133 = $9c0133.options;
+      }
+    
+        /* template */
+        Object.assign($9c0133, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-9c0133",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$9c0133', $9c0133);
+          } else {
+            api.reload('$9c0133', $9c0133);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"vue":"node_modules/vue/dist/vue.common.js","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js"}],"src/tabs-item.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'TabsItem',
+  inject: ['eventBus'],
+  props: {
+    name: {
+      type: String || Number,
+      require: true
+    }
+  },
+  data: function data() {
+    return {
+      actived: false
+    };
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        actived: this.actived
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.eventBus.$on('updata:selectedTab', function (name) {
+      _this.actived = name == _this.name;
+    });
+  },
+  methods: {
+    xxx: function xxx() {
+      this.eventBus.$emit('updata:selectedTab', this.name);
+    }
+  }
+};
+exports.default = _default;
+        var $707ddc = exports.default || module.exports;
+      
+      if (typeof $707ddc === 'function') {
+        $707ddc = $707ddc.options;
+      }
+    
+        /* template */
+        Object.assign($707ddc, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "tabs-item", class: _vm.classes, on: { click: _vm.xxx } },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-707ddc",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$707ddc', $707ddc);
+          } else {
+            api.reload('$707ddc', $707ddc);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-head.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'TabsHead',
+  inject: ['eventBus'],
+  created: function created() {}
+};
+exports.default = _default;
+        var $4f3db4 = exports.default || module.exports;
+      
+      if (typeof $4f3db4 === 'function') {
+        $4f3db4 = $4f3db4.options;
+      }
+    
+        /* template */
+        Object.assign($4f3db4, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "tabs-head" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-4f3db4",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$4f3db4', $4f3db4);
+          } else {
+            api.reload('$4f3db4', $4f3db4);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-body.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: 'TabsBody',
+  inject: ['eventBus'],
+  created: function created() {}
+};
+exports.default = _default;
+        var $73fcb8 = exports.default || module.exports;
+      
+      if (typeof $73fcb8 === 'function') {
+        $73fcb8 = $73fcb8.options;
+      }
+    
+        /* template */
+        Object.assign($73fcb8, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-73fcb8",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$73fcb8', $73fcb8);
+          } else {
+            api.reload('$73fcb8', $73fcb8);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/tabs-pane.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "TabsPane",
+  inject: ["eventBus"],
+  props: {
+    name: {
+      type: String || Number,
+      require: true
+    }
+  },
+  data: function data() {
+    return {
+      actived: false
+    };
+  },
+  computed: {
+    classes: function classes() {
+      return {
+        actived: this.actived
+      };
+    }
+  },
+  created: function created() {
+    var _this = this;
+
+    this.eventBus.$on("updata:selectedTab", function (name) {
+      _this.actived = name == _this.name;
+    });
+  }
+};
+exports.default = _default;
+        var $a2c996 = exports.default || module.exports;
+      
+      if (typeof $a2c996 === 'function') {
+        $a2c996 = $a2c996.options;
+      }
+    
+        /* template */
+        Object.assign($a2c996, (function () {
+          var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "tabs-pane", class: _vm.classes },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-a2c996",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$a2c996', $a2c996);
+          } else {
+            api.reload('$a2c996', $a2c996);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
 },{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/toast.vue":[function(require,module,exports) {
 "use strict";
 
@@ -13220,6 +13628,16 @@ var _row = _interopRequireDefault(require("./row.vue"));
 
 var _col = _interopRequireDefault(require("./col.vue"));
 
+var _tabs = _interopRequireDefault(require("./tabs"));
+
+var _tabsItem = _interopRequireDefault(require("./tabs-item"));
+
+var _tabsHead = _interopRequireDefault(require("./tabs-head"));
+
+var _tabsBody = _interopRequireDefault(require("./tabs-body"));
+
+var _tabsPane = _interopRequireDefault(require("./tabs-pane"));
+
 var _plugin = _interopRequireDefault(require("./plugin.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -13237,6 +13655,16 @@ _vue.default.component('g-row', _row.default);
 _vue.default.component('g-col', _col.default);
 
 _vue.default.use(_plugin.default);
+
+_vue.default.component('g-tabs', _tabs.default);
+
+_vue.default.component('g-tabs-item', _tabsItem.default);
+
+_vue.default.component('g-tabs-head', _tabsHead.default);
+
+_vue.default.component('g-tabs-body', _tabsBody.default);
+
+_vue.default.component('g-tabs-pane', _tabsPane.default);
 
 new _vue.default({
   el: '#app',
@@ -13257,10 +13685,11 @@ new _vue.default({
           }
         }
       });
-    }
+    },
+    updated: function updated() {}
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./plugin.js":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./tabs":"src/tabs.vue","./tabs-item":"src/tabs-item.vue","./tabs-head":"src/tabs-head.vue","./tabs-body":"src/tabs-body.vue","./tabs-pane":"src/tabs-pane.vue","./plugin.js":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -13288,7 +13717,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51738" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50682" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
