@@ -13001,7 +13001,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 var _default = {
-  name: 'Tabs',
+  name: "Tabs",
   props: {
     selected: {
       type: String || Number
@@ -13018,7 +13018,17 @@ var _default = {
     };
   },
   mounted: function mounted() {
-    this.eventBus.$emit('updata:selectedTab', this.selected);
+    var _this = this;
+
+    this.$children.forEach(function (vm) {
+      if (vm.$options.name === "TabsHead") {
+        vm.$children.forEach(function (childVm) {
+          if (childVm.$options.name === "TabsItem" && childVm.name === _this.selected) {
+            _this.eventBus.$emit("updata:selectedTab", _this.selected, childVm);
+          }
+        });
+      }
+    });
   }
 };
 exports.default = _default;
