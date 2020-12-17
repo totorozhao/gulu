@@ -1,6 +1,6 @@
 <template>
   <div class="g-popover" @click="xxx">
-    <div class="content-wrap" v-if="visable">
+    <div class="content-wrap" v-if="visible">
       <slot name="content"></slot>
     </div>
 
@@ -12,12 +12,22 @@ export default {
   name: "popover",
   data() {
     return {
-      visable: false,
+      visible: false,
     };
   },
   methods: {
     xxx() {
-      this.visable = !this.visable;
+      this.visible = !this.visible;
+       if (this.visible === true) {
+            setTimeout(() => {
+                let eventHandler = () => {
+                    this.visible = false;
+                    document.removeEventListener("click", eventHandler);
+                };
+                document.addEventListener("click", eventHandler);
+            });
+      }
+
     },
   },
 };

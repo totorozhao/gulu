@@ -13462,12 +13462,25 @@ var _default = {
   name: "popover",
   data: function data() {
     return {
-      visable: false
+      visible: false
     };
   },
   methods: {
     xxx: function xxx() {
-      this.visable = !this.visable;
+      var _this = this;
+
+      this.visible = !this.visible;
+
+      if (this.visible === true) {
+        setTimeout(function () {
+          var eventHandler = function eventHandler() {
+            _this.visible = false;
+            document.removeEventListener("click", eventHandler);
+          };
+
+          document.addEventListener("click", eventHandler);
+        });
+      }
     }
   }
 };
@@ -13488,7 +13501,7 @@ exports.default = _default;
     "div",
     { staticClass: "g-popover", on: { click: _vm.xxx } },
     [
-      _vm.visable
+      _vm.visible
         ? _c("div", { staticClass: "content-wrap" }, [_vm._t("content")], 2)
         : _vm._e(),
       _vm._v(" "),
