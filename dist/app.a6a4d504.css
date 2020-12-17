@@ -293,6 +293,17 @@
   color: red;
 }
 
+.g-popover[data-v-74ac81] {
+  display: inline-block;
+  position: relative;
+}
+.g-popover .content-wrap[data-v-74ac81] {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
 @keyframes slide-up-data-v-da4773 {
 0% {
     opacity: 0;

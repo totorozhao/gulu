@@ -30,7 +30,7 @@
         
         .box {
             margin-top: 40px;
-            overflow: hidden
+            /* overflow: hidden */
         }
         
         .grid-demo {
@@ -59,7 +59,7 @@
 
 <body>
     <div id="app">
-        <div class="box">
+        <!-- <div class="box">
             <g-button>vue.js造轮子</g-button>
             <g-button icon="down" icon-position="left" :loading="loading1" @click="loading1 = !loading1">下载</g-button>
             <g-button icon="arrow-left" icon-position="left">左侧</g-button>
@@ -136,7 +136,7 @@
             <g-button @click="showToast">点我弹框</g-button>
             <g-button @click="showToast('top')">点我弹框</g-button>
             <g-button @click="showToast('bottom')">点我弹框</g-button>
-        </div>
+        </div> -->
 
 
 
@@ -154,6 +154,18 @@
                     <g-tabs-pane name="hero">英雄技能</g-tabs-pane>
                 </g-tabs-body>
             </g-tabs>
+        </div>
+
+        <div class="box">
+            <g-popover>
+                <div slot="content">popover内容</div>
+                <g-button>点我1</g-button>
+            </g-popover>
+
+            <g-popover>
+                <div slot="content">popover内容</div>
+                <g-button>点我2</g-button>
+            </g-popover>
         </div>
     </div>
     <script src="src/app.js" type="module"></script>
