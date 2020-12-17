@@ -29,7 +29,6 @@ $blue:#157cdc;
   border: 1px solid #ccc;
   position: relative;
   > .line{
-      width: 20px;
       border-bottom: 1px solid $blue;
       position: absolute;
       bottom: 0;

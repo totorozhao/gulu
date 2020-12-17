@@ -13099,6 +13099,10 @@ var _default = {
     name: {
       type: String || Number,
       require: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -13109,7 +13113,8 @@ var _default = {
   computed: {
     classes: function classes() {
       return {
-        actived: this.actived
+        actived: this.actived,
+        disabled: this.disabled
       };
     }
   },
@@ -13121,8 +13126,12 @@ var _default = {
     });
   },
   methods: {
-    xxx: function xxx() {
-      this.eventBus.$emit('updata:selectedTab', this.name, this);
+    onClick: function onClick() {
+      console.log(this.disabled);
+
+      if (!this.disabled) {
+        this.eventBus.$emit('updata:selectedTab', this.name, this);
+      }
     }
   }
 };
@@ -13141,7 +13150,11 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "tabs-item", class: _vm.classes, on: { click: _vm.xxx } },
+    {
+      staticClass: "tabs-item",
+      class: _vm.classes,
+      on: { click: _vm.onClick }
+    },
     [_vm._t("default")],
     2
   )

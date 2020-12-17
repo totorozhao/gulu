@@ -267,7 +267,11 @@
   cursor: pointer;
 }
 .tabs-item.actived[data-v-707ddc] {
-    color: red;
+    color: #157cdc;
+}
+.tabs-item.disabled[data-v-707ddc] {
+    color: grey;
+    cursor: not-allowed;
 }
 
 .tabs-head[data-v-4f3db4] {
@@ -279,7 +283,6 @@
   position: relative;
 }
 .tabs-head > .line[data-v-4f3db4] {
-    width: 20px;
     border-bottom: 1px solid #157cdc;
     position: absolute;
     bottom: 0;
