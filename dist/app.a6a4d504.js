@@ -13475,11 +13475,14 @@ var _default = {
         setTimeout(function () {
           var eventHandler = function eventHandler() {
             _this.visible = false;
+            console.log('document 隐藏 popover');
             document.removeEventListener("click", eventHandler);
           };
 
           document.addEventListener("click", eventHandler);
         });
+      } else {
+        console.log('vm 隐藏 popover');
       }
     }
   }
@@ -13499,7 +13502,15 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "g-popover", on: { click: _vm.xxx } },
+    {
+      staticClass: "g-popover",
+      on: {
+        click: function($event) {
+          $event.stopPropagation()
+          return _vm.xxx($event)
+        }
+      }
+    },
     [
       _vm.visible
         ? _c("div", { staticClass: "content-wrap" }, [_vm._t("content")], 2)
@@ -13875,7 +13886,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50682" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55432" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

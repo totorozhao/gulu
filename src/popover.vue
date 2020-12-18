@@ -1,5 +1,5 @@
 <template>
-  <div class="g-popover" @click="xxx">
+  <div class="g-popover" @click.stop="xxx">
     <div class="content-wrap" v-if="visible">
       <slot name="content"></slot>
     </div>
@@ -22,10 +22,13 @@ export default {
             setTimeout(() => {
                 let eventHandler = () => {
                     this.visible = false;
+                    console.log('document 隐藏 popover')
                     document.removeEventListener("click", eventHandler);
                 };
                 document.addEventListener("click", eventHandler);
             });
+      }else{
+           console.log('vm 隐藏 popover')
       }
 
     },
