@@ -13482,7 +13482,7 @@ var _default = {
           document.addEventListener("click", eventHandler);
         });
       } else {
-        console.log('vm 隐藏 popover');
+        console.log('vm 隐藏 popover'); //自己内部事件自己处理 不需要交给document
       }
     }
   }
@@ -13513,7 +13513,19 @@ exports.default = _default;
     },
     [
       _vm.visible
-        ? _c("div", { staticClass: "content-wrap" }, [_vm._t("content")], 2)
+        ? _c(
+            "div",
+            {
+              staticClass: "content-wrap",
+              on: {
+                click: function($event) {
+                  $event.stopPropagation()
+                }
+              }
+            },
+            [_vm._t("content")],
+            2
+          )
         : _vm._e(),
       _vm._v(" "),
       _vm._t("default")

@@ -1,6 +1,6 @@
 <template>
   <div class="g-popover" @click.stop="xxx">
-    <div class="content-wrap" v-if="visible">
+    <div class="content-wrap" v-if="visible" @click.stop>
       <slot name="content"></slot>
     </div>
 
@@ -28,7 +28,7 @@ export default {
                 document.addEventListener("click", eventHandler);
             });
       }else{
-           console.log('vm 隐藏 popover')
+           console.log('vm 隐藏 popover')//自己内部事件自己处理 不需要交给document
       }
 
     },
