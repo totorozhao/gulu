@@ -55,6 +55,6 @@ new Vue({
                 }
             })
         },
-        updated() {},
+        yyy() { console.log('yyy') },
     }
 })

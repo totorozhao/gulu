@@ -13457,7 +13457,6 @@ exports.default = void 0;
 //
 //
 //
-//
 var _default = {
   name: "popover",
   data: function data() {
@@ -13465,24 +13464,48 @@ var _default = {
       visible: false
     };
   },
+  mounted: function mounted() {},
   methods: {
-    xxx: function xxx() {
+    positionContent: function positionContent() {
+      document.body.appendChild(this.$refs.contentWrap);
+
+      var _this$$refs$triggerWr = this.$refs.triggerWrap.getBoundingClientRect(),
+          width = _this$$refs$triggerWr.width,
+          height = _this$$refs$triggerWr.height,
+          top = _this$$refs$triggerWr.top,
+          left = _this$$refs$triggerWr.left;
+
+      this.$refs.contentWrap.style.left = "".concat(left + window.scrollX, "px");
+      this.$refs.contentWrap.style.top = "".concat(top + window.scrollY, "px");
+    },
+    onClickDocumnet: function onClickDocumnet(e) {
+      if (this.$refs.popover && this.$refs.popover.contains(e.target)) {
+        return;
+      }
+
+      this.close();
+    },
+    open: function open() {
       var _this = this;
 
-      this.visible = !this.visible;
+      this.visible = true;
+      setTimeout(function () {
+        _this.positionContent();
 
-      if (this.visible === true) {
-        setTimeout(function () {
-          var eventHandler = function eventHandler() {
-            _this.visible = false;
-            console.log('document 隐藏 popover');
-            document.removeEventListener("click", eventHandler);
-          };
-
-          document.addEventListener("click", eventHandler);
-        });
-      } else {
-        console.log('vm 隐藏 popover'); //自己内部事件自己处理 不需要交给document
+        document.addEventListener("click", _this.onClickDocumnet);
+      });
+    },
+    close: function close() {
+      this.visible = false;
+      document.removeEventListener("click", this.onClickDocumnet);
+    },
+    xxx: function xxx(event) {
+      if (this.$refs.triggerWrap.contains(event.target)) {
+        if (this.visible == true) {
+          this.close();
+        } else {
+          this.open();
+        }
       }
     }
   }
@@ -13502,20 +13525,13 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    {
-      staticClass: "g-popover",
-      on: {
-        click: function($event) {
-          $event.stopPropagation()
-          return _vm.xxx($event)
-        }
-      }
-    },
+    { ref: "popover", staticClass: "g-popover", on: { click: _vm.xxx } },
     [
       _vm.visible
         ? _c(
             "div",
             {
+              ref: "contentWrap",
               staticClass: "content-wrap",
               on: {
                 click: function($event) {
@@ -13528,9 +13544,8 @@ exports.default = _default;
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm._t("default")
-    ],
-    2
+      _c("span", { ref: "triggerWrap" }, [_vm._t("default")], 2)
+    ]
   )
 }
 var staticRenderFns = []
@@ -13867,7 +13882,9 @@ new _vue.default({
         }
       });
     },
-    updated: function updated() {}
+    yyy: function yyy() {
+      console.log('yyy');
+    }
   }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button":"src/button.vue","./icon":"src/icon.vue","./buttonGroup":"src/buttonGroup.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue","./tabs":"src/tabs.vue","./tabs-item":"src/tabs-item.vue","./tabs-head":"src/tabs-head.vue","./tabs-body":"src/tabs-body.vue","./tabs-pane":"src/tabs-pane.vue","./popover":"src/popover.vue","./plugin.js":"src/plugin.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
