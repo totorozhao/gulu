@@ -15,6 +15,9 @@
       }
     },
     mounted() {},
+    //fqa : overflow:hidden 会造成定位隐藏 所以加上window.scrollX,window.scrollY
+    //fqa ： 重复关闭，一次关闭，事件触发两次  分开处理：document只管外面 prover只管里面
+    //fqa : 忘了取消监听document  在close中处理
     methods: {
       positionContent() {
         document.body.appendChild(this.$refs.contentWrap)
