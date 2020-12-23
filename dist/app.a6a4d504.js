@@ -13459,6 +13459,12 @@ exports.default = void 0;
 //
 var _default = {
   name: "popover",
+  props: {
+    position: {
+      type: String,
+      default: 'top'
+    }
+  },
   data: function data() {
     return {
       visible: false
@@ -13470,18 +13476,21 @@ var _default = {
   //fqa : 忘了取消监听document  在close中处理
   methods: {
     positionContent: function positionContent() {
-      document.body.appendChild(this.$refs.contentWrap);
+      var _this$$refs = this.$refs,
+          contentWrap = _this$$refs.contentWrap,
+          triggerWrap = _this$$refs.triggerWrap;
+      document.body.appendChild(contentWrap);
 
-      var _this$$refs$triggerWr = this.$refs.triggerWrap.getBoundingClientRect(),
-          width = _this$$refs$triggerWr.width,
-          height = _this$$refs$triggerWr.height,
-          top = _this$$refs$triggerWr.top,
-          left = _this$$refs$triggerWr.left;
+      var _triggerWrap$getBound = triggerWrap.getBoundingClientRect(),
+          width = _triggerWrap$getBound.width,
+          height = _triggerWrap$getBound.height,
+          top = _triggerWrap$getBound.top,
+          left = _triggerWrap$getBound.left;
 
-      this.$refs.contentWrap.style.left = "".concat(left + window.scrollX, "px");
-      this.$refs.contentWrap.style.top = "".concat(top + window.scrollY, "px");
+      contentWrap.style.left = "".concat(left + window.scrollX, "px");
+      contentWrap.style.top = "".concat(top + window.scrollY, "px");
     },
-    onClickDocumnet: function onClickDocumnet(e) {
+    onClickDocument: function onClickDocument(e) {
       if (this.$refs.popover && this.$refs.popover.contains(e.target)) {
         return;
       }
@@ -13495,14 +13504,14 @@ var _default = {
       setTimeout(function () {
         _this.positionContent();
 
-        document.addEventListener("click", _this.onClickDocumnet);
+        document.addEventListener("click", _this.onClickDocument);
       });
     },
     close: function close() {
       this.visible = false;
-      document.removeEventListener("click", this.onClickDocumnet);
+      document.removeEventListener("click", this.onClickDocument);
     },
-    xxx: function xxx(event) {
+    onClick: function onClick(event) {
       if (this.$refs.triggerWrap.contains(event.target)) {
         if (this.visible == true) {
           this.close();
@@ -13523,12 +13532,13 @@ exports.default = _default;
         /* template */
         Object.assign($74ac81, (function () {
           var render = function() {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { ref: "popover", staticClass: "g-popover", on: { click: _vm.xxx } },
+    { ref: "popover", staticClass: "g-popover", on: { click: _vm.onClick } },
     [
       _vm.visible
         ? _c(
@@ -13536,6 +13546,8 @@ exports.default = _default;
             {
               ref: "contentWrap",
               staticClass: "content-wrap",
+              class:
+                ((_obj = {}), (_obj["position-" + _vm.position] = true), _obj),
               on: {
                 click: function($event) {
                   $event.stopPropagation()
@@ -13547,7 +13559,12 @@ exports.default = _default;
           )
         : _vm._e(),
       _vm._v(" "),
-      _c("span", { ref: "triggerWrap" }, [_vm._t("default")], 2)
+      _c(
+        "span",
+        { ref: "triggerWrap", staticStyle: { display: "inline-block" } },
+        [_vm._t("default")],
+        2
+      )
     ]
   )
 }
