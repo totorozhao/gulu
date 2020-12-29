@@ -13,7 +13,9 @@
         position:{
             type:String,
             default:'top',
-
+            validator(value){
+                return ['top','bottom','left','right'].indexOf(value) >-1
+            }
         }
     },
     data() {
@@ -27,11 +29,24 @@
     //fqa : 忘了取消监听document  在close中处理
     methods: {
       positionContent() {
-          const {contentWrap,triggerWrap} = this.$refs
+        const {contentWrap,triggerWrap} = this.$refs
         document.body.appendChild(contentWrap)
         let { width, height, top, left } = triggerWrap.getBoundingClientRect()
-        contentWrap.style.left = `${left + window.scrollX}px`
-        contentWrap.style.top = `${top + window.scrollY}px`
+        let {width:width2 ,height:height2} = contentWrap.getBoundingClientRect()
+        if(this.position === 'top'){
+          contentWrap.style.left = `${left + window.scrollX}px`
+          contentWrap.style.top = `${top + window.scrollY}px`
+        }else if(this.position === 'bottom'){
+           contentWrap.style.left = `${left + window.scrollX}px`
+           contentWrap.style.top = `${top + height + window.scrollY}px`
+        } else if(this.position === 'left'){
+           contentWrap.style.left = `${left + window.scrollX}px`
+           contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+        }else if(this.position === 'right'){
+           contentWrap.style.left = `${left + window.scrollX + width}px`
+           contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+        }
+        
       },
 
       onClickDocument(e) {
@@ -78,30 +93,79 @@ $border-radius: 4px;
     background: white;
     /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.5); */
     border-radius: $border-radius;
-    transform: translateY(-100%);
     transition: all 200ms;
     max-width: 20em;
-    margin-top: -10px;
     word-break: break-all;
-     &::before, &::after{
+    &::before, &::after{
         content:'';
         display: block;
         border:10px solid transparent;
         width: 0;
         height: 0;
         position: absolute;
-        top:100%;
-        left: 10px;
     }
-    &::before{
+    &.position-top{
+      margin-top: -10px;
+      transform: translateY(-100%);
+      &::before{
         border-top-color:$border-color;
         top:100%;
         left: 10px;
-    }
-    &::after{
+      }
+      &::after{
         border-top-color:white;
         top:calc(100% - 1px);
         left: 10px;
+      }
     }
+
+     &.position-bottom{
+      margin-top: 10px;
+      &::before{
+        border-bottom-color:$border-color;
+        bottom:100%;
+        left: 10px;
+      }
+      &::after{
+        border-bottom-color:white;
+        bottom:calc(100% - 1px);
+        left: 10px;
+      }
+    }
+
+    &.position-left{
+      transform: translateX(-100%);
+      margin-left: -10px;
+      &::before{
+        border-left-color:$border-color;
+        left: 100%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+      &::after{
+        border-left-color:white;
+        left: 100%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+
+     &.position-right{
+      margin-left: 10px;
+      &::before{
+        border-right-color:$border-color;
+        right: 100%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+      &::after{
+        border-right-color:white;
+        right: 100%;
+        top:50%;
+        transform: translateY(-50%);
+      }
+    }
+    
+   
   }
 </style>

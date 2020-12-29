@@ -13462,7 +13462,10 @@ var _default = {
   props: {
     position: {
       type: String,
-      default: 'top'
+      default: 'top',
+      validator: function validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) > -1;
+      }
     }
   },
   data: function data() {
@@ -13487,8 +13490,23 @@ var _default = {
           top = _triggerWrap$getBound.top,
           left = _triggerWrap$getBound.left;
 
-      contentWrap.style.left = "".concat(left + window.scrollX, "px");
-      contentWrap.style.top = "".concat(top + window.scrollY, "px");
+      var _contentWrap$getBound = contentWrap.getBoundingClientRect(),
+          width2 = _contentWrap$getBound.width,
+          height2 = _contentWrap$getBound.height;
+
+      if (this.position === 'top') {
+        contentWrap.style.left = "".concat(left + window.scrollX, "px");
+        contentWrap.style.top = "".concat(top + window.scrollY, "px");
+      } else if (this.position === 'bottom') {
+        contentWrap.style.left = "".concat(left + window.scrollX, "px");
+        contentWrap.style.top = "".concat(top + height + window.scrollY, "px");
+      } else if (this.position === 'left') {
+        contentWrap.style.left = "".concat(left + window.scrollX, "px");
+        contentWrap.style.top = "".concat(top + window.scrollY + (height - height2) / 2, "px");
+      } else if (this.position === 'right') {
+        contentWrap.style.left = "".concat(left + window.scrollX + width, "px");
+        contentWrap.style.top = "".concat(top + window.scrollY + (height - height2) / 2, "px");
+      }
     },
     onClickDocument: function onClickDocument(e) {
       if (this.$refs.popover && this.$refs.popover.contains(e.target)) {
@@ -13935,7 +13953,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55432" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57377" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -305,10 +305,8 @@
   background: white;
   /* box-shadow: 0 0 3px rgba(0, 0, 0, 0.5); */
   border-radius: 4px;
-  transform: translateY(-100%);
   transition: all 200ms;
   max-width: 20em;
-  margin-top: -10px;
   word-break: break-all;
 }
 .content-wrap[data-v-74ac81]::before, .content-wrap[data-v-74ac81]::after {
@@ -318,18 +316,64 @@
     width: 0;
     height: 0;
     position: absolute;
-    top: 100%;
-    left: 10px;
 }
-.content-wrap[data-v-74ac81]::before {
-    border-top-color: #333;
-    top: 100%;
-    left: 10px;
+.content-wrap.position-top[data-v-74ac81] {
+    margin-top: -10px;
+    transform: translateY(-100%);
 }
-.content-wrap[data-v-74ac81]::after {
-    border-top-color: white;
-    top: calc(100% - 1px);
-    left: 10px;
+.content-wrap.position-top[data-v-74ac81]::before {
+      border-top-color: #333;
+      top: 100%;
+      left: 10px;
+}
+.content-wrap.position-top[data-v-74ac81]::after {
+      border-top-color: white;
+      top: calc(100% - 1px);
+      left: 10px;
+}
+.content-wrap.position-bottom[data-v-74ac81] {
+    margin-top: 10px;
+}
+.content-wrap.position-bottom[data-v-74ac81]::before {
+      border-bottom-color: #333;
+      bottom: 100%;
+      left: 10px;
+}
+.content-wrap.position-bottom[data-v-74ac81]::after {
+      border-bottom-color: white;
+      bottom: calc(100% - 1px);
+      left: 10px;
+}
+.content-wrap.position-left[data-v-74ac81] {
+    transform: translateX(-100%);
+    margin-left: -10px;
+}
+.content-wrap.position-left[data-v-74ac81]::before {
+      border-left-color: #333;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+}
+.content-wrap.position-left[data-v-74ac81]::after {
+      border-left-color: white;
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+}
+.content-wrap.position-right[data-v-74ac81] {
+    margin-left: 10px;
+}
+.content-wrap.position-right[data-v-74ac81]::before {
+      border-right-color: #333;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+}
+.content-wrap.position-right[data-v-74ac81]::after {
+      border-right-color: white;
+      right: 100%;
+      top: 50%;
+      transform: translateY(-50%);
 }
 
 @keyframes slide-up-data-v-da4773 {
