@@ -350,7 +350,7 @@
 }
 .content-wrap.position-left[data-v-74ac81]::before {
       border-left-color: #333;
-      left: 100%;
+      left: calc(100% + 1px);
       top: 50%;
       transform: translateY(-50%);
 }
@@ -365,7 +365,7 @@
 }
 .content-wrap.position-right[data-v-74ac81]::before {
       border-right-color: #333;
-      right: 100%;
+      right: calc(100% + 1px);
       top: 50%;
       transform: translateY(-50%);
 }

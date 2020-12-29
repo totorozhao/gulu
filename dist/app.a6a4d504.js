@@ -13494,19 +13494,38 @@ var _default = {
           width2 = _contentWrap$getBound.width,
           height2 = _contentWrap$getBound.height;
 
-      if (this.position === 'top') {
-        contentWrap.style.left = "".concat(left + window.scrollX, "px");
-        contentWrap.style.top = "".concat(top + window.scrollY, "px");
-      } else if (this.position === 'bottom') {
-        contentWrap.style.left = "".concat(left + window.scrollX, "px");
-        contentWrap.style.top = "".concat(top + height + window.scrollY, "px");
-      } else if (this.position === 'left') {
-        contentWrap.style.left = "".concat(left + window.scrollX, "px");
-        contentWrap.style.top = "".concat(top + window.scrollY + (height - height2) / 2, "px");
-      } else if (this.position === 'right') {
-        contentWrap.style.left = "".concat(left + window.scrollX + width, "px");
-        contentWrap.style.top = "".concat(top + window.scrollY + (height - height2) / 2, "px");
-      }
+      var positions = {
+        top: {
+          left: left + window.scrollX,
+          top: top + window.scrollY
+        },
+        bottom: {
+          left: left + window.scrollX,
+          top: top + height + window.scrollY
+        },
+        left: {
+          left: left + window.scrollX,
+          top: top + window.scrollY + (height - height2) / 2
+        },
+        right: {
+          left: left + window.scrollX + width,
+          top: top + window.scrollY + (height - height2) / 2
+        }
+      };
+      contentWrap.style.left = "".concat(positions[this.position].left, "px");
+      contentWrap.style.top = "".concat(positions[this.position].top, "px"); // if(this.position === 'top'){
+      //   contentWrap.style.left = `${left + window.scrollX}px`
+      //   contentWrap.style.top = `${top + window.scrollY}px`
+      // }else if(this.position === 'bottom'){
+      //    contentWrap.style.left = `${left + window.scrollX}px`
+      //    contentWrap.style.top = `${top + height + window.scrollY}px`
+      // } else if(this.position === 'left'){
+      //    contentWrap.style.left = `${left + window.scrollX}px`
+      //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+      // }else if(this.position === 'right'){
+      //    contentWrap.style.left = `${left + window.scrollX + width}px`
+      //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+      // }
     },
     onClickDocument: function onClickDocument(e) {
       if (this.$refs.popover && this.$refs.popover.contains(e.target)) {

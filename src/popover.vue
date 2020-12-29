@@ -31,21 +31,30 @@
       positionContent() {
         const {contentWrap,triggerWrap} = this.$refs
         document.body.appendChild(contentWrap)
-        let { width, height, top, left } = triggerWrap.getBoundingClientRect()
-        let {width:width2 ,height:height2} = contentWrap.getBoundingClientRect()
-        if(this.position === 'top'){
-          contentWrap.style.left = `${left + window.scrollX}px`
-          contentWrap.style.top = `${top + window.scrollY}px`
-        }else if(this.position === 'bottom'){
-           contentWrap.style.left = `${left + window.scrollX}px`
-           contentWrap.style.top = `${top + height + window.scrollY}px`
-        } else if(this.position === 'left'){
-           contentWrap.style.left = `${left + window.scrollX}px`
-           contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
-        }else if(this.position === 'right'){
-           contentWrap.style.left = `${left + window.scrollX + width}px`
-           contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+        const { width, height, top, left } = triggerWrap.getBoundingClientRect()
+        const {width:width2 ,height:height2} = contentWrap.getBoundingClientRect()
+        const positions = {
+          top:{ left:left + window.scrollX,  top:top + window.scrollY  },
+          bottom:{ left:left + window.scrollX, top: top + height + window.scrollY},
+          left:{ left:left + window.scrollX, top: top + window.scrollY + (height-height2)/2},
+          right:{ left:left + window.scrollX + width, top: top + window.scrollY + (height-height2)/2}
         }
+
+        contentWrap.style.left = `${positions[this.position].left}px`
+        contentWrap.style.top = `${positions[this.position].top}px`
+        // if(this.position === 'top'){
+        //   contentWrap.style.left = `${left + window.scrollX}px`
+        //   contentWrap.style.top = `${top + window.scrollY}px`
+        // }else if(this.position === 'bottom'){
+        //    contentWrap.style.left = `${left + window.scrollX}px`
+        //    contentWrap.style.top = `${top + height + window.scrollY}px`
+        // } else if(this.position === 'left'){
+        //    contentWrap.style.left = `${left + window.scrollX}px`
+        //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+        // }else if(this.position === 'right'){
+        //    contentWrap.style.left = `${left + window.scrollX + width}px`
+        //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
+        // }
         
       },
 
@@ -138,7 +147,7 @@ $border-radius: 4px;
       margin-left: -10px;
       &::before{
         border-left-color:$border-color;
-        left: 100%;
+        left: calc(100% + 1px);
         top:50%;
         transform: translateY(-50%);
       }
@@ -154,7 +163,7 @@ $border-radius: 4px;
       margin-left: 10px;
       &::before{
         border-right-color:$border-color;
-        right: 100%;
+        right: calc(100% + 1px);
         top:50%;
         transform: translateY(-50%);
       }
