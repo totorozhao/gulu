@@ -13466,6 +13466,13 @@ var _default = {
       validator: function validator(value) {
         return ['top', 'bottom', 'left', 'right'].indexOf(value) > -1;
       }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator: function validator(value) {
+        return ['click', 'hover'].indexOf(value) > -1;
+      }
     }
   },
   data: function data() {
@@ -13473,7 +13480,26 @@ var _default = {
       visible: false
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    var popover = this.$refs.popover;
+
+    if (this.trigger == 'click') {
+      popover.addEventListener('click', this.onClick);
+    } else {
+      popover.addEventListener('mouseenter', this.open);
+      popover.addEventListener('mouseleave', this.close);
+    }
+  },
+  destroyed: function destroyed() {
+    var popover = this.$refs.popover;
+
+    if (this.trigger == 'click') {
+      popover.removeEventListener('click', this.onClick);
+    } else {
+      popover.removeEventListener('mouseenter', this.open);
+      popover.removeEventListener('mouseleave', this.close);
+    }
+  },
   //fqa : overflow:hidden 会造成定位隐藏 所以加上window.scrollX,window.scrollY
   //fqa ： 重复关闭，一次关闭，事件触发两次  分开处理：document只管外面 prover只管里面
   //fqa : 忘了取消监听document  在close中处理
@@ -13513,19 +13539,7 @@ var _default = {
         }
       };
       contentWrap.style.left = "".concat(positions[this.position].left, "px");
-      contentWrap.style.top = "".concat(positions[this.position].top, "px"); // if(this.position === 'top'){
-      //   contentWrap.style.left = `${left + window.scrollX}px`
-      //   contentWrap.style.top = `${top + window.scrollY}px`
-      // }else if(this.position === 'bottom'){
-      //    contentWrap.style.left = `${left + window.scrollX}px`
-      //    contentWrap.style.top = `${top + height + window.scrollY}px`
-      // } else if(this.position === 'left'){
-      //    contentWrap.style.left = `${left + window.scrollX}px`
-      //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
-      // }else if(this.position === 'right'){
-      //    contentWrap.style.left = `${left + window.scrollX + width}px`
-      //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
-      // }
+      contentWrap.style.top = "".concat(positions[this.position].top, "px");
     },
     onClickDocument: function onClickDocument(e) {
       if (this.$refs.popover && this.$refs.popover.contains(e.target)) {
@@ -13573,37 +13587,33 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "popover", staticClass: "g-popover", on: { click: _vm.onClick } },
-    [
-      _vm.visible
-        ? _c(
-            "div",
-            {
-              ref: "contentWrap",
-              staticClass: "content-wrap",
-              class:
-                ((_obj = {}), (_obj["position-" + _vm.position] = true), _obj),
-              on: {
-                click: function($event) {
-                  $event.stopPropagation()
-                }
+  return _c("div", { ref: "popover", staticClass: "g-popover" }, [
+    _vm.visible
+      ? _c(
+          "div",
+          {
+            ref: "contentWrap",
+            staticClass: "content-wrap",
+            class:
+              ((_obj = {}), (_obj["position-" + _vm.position] = true), _obj),
+            on: {
+              click: function($event) {
+                $event.stopPropagation()
               }
-            },
-            [_vm._t("content")],
-            2
-          )
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "span",
-        { ref: "triggerWrap", staticStyle: { display: "inline-block" } },
-        [_vm._t("default")],
-        2
-      )
-    ]
-  )
+            }
+          },
+          [_vm._t("content")],
+          2
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _c(
+      "span",
+      { ref: "triggerWrap", staticStyle: { display: "inline-block" } },
+      [_vm._t("default")],
+      2
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

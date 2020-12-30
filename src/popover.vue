@@ -1,5 +1,5 @@
 <template>
-  <div class="g-popover" ref="popover" @click="onClick">
+  <div class="g-popover" ref="popover">
     <div ref="contentWrap" class="content-wrap" :class="{[`position-${position}`]:true}" v-if="visible" @click.stop>
       <slot name="content"></slot>
     </div>
@@ -16,6 +16,13 @@
             validator(value){
                 return ['top','bottom','left','right'].indexOf(value) >-1
             }
+        },
+        trigger:{
+          type:String,
+          default:'click',
+          validator(value){
+            return ['click','hover'].indexOf(value) > -1
+          }
         }
     },
     data() {
@@ -23,7 +30,24 @@
         visible: false,
       }
     },
-    mounted() {},
+    mounted() {
+       const {popover} = this.$refs
+       if(this.trigger == 'click'){
+         popover.addEventListener('click',this.onClick)
+       }else{
+         popover.addEventListener('mouseenter',this.open)
+         popover.addEventListener('mouseleave',this.close)
+       }
+    },
+    destroyed(){
+      const {popover} = this.$refs
+       if(this.trigger == 'click'){
+         popover.removeEventListener('click',this.onClick)
+       }else{
+         popover.removeEventListener('mouseenter',this.open)
+         popover.removeEventListener('mouseleave',this.close)
+       }
+    },
     //fqa : overflow:hidden 会造成定位隐藏 所以加上window.scrollX,window.scrollY
     //fqa ： 重复关闭，一次关闭，事件触发两次  分开处理：document只管外面 prover只管里面
     //fqa : 忘了取消监听document  在close中处理
@@ -39,23 +63,8 @@
           left:{ left:left + window.scrollX, top: top + window.scrollY + (height-height2)/2},
           right:{ left:left + window.scrollX + width, top: top + window.scrollY + (height-height2)/2}
         }
-
         contentWrap.style.left = `${positions[this.position].left}px`
         contentWrap.style.top = `${positions[this.position].top}px`
-        // if(this.position === 'top'){
-        //   contentWrap.style.left = `${left + window.scrollX}px`
-        //   contentWrap.style.top = `${top + window.scrollY}px`
-        // }else if(this.position === 'bottom'){
-        //    contentWrap.style.left = `${left + window.scrollX}px`
-        //    contentWrap.style.top = `${top + height + window.scrollY}px`
-        // } else if(this.position === 'left'){
-        //    contentWrap.style.left = `${left + window.scrollX}px`
-        //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
-        // }else if(this.position === 'right'){
-        //    contentWrap.style.left = `${left + window.scrollX + width}px`
-        //    contentWrap.style.top = `${top + window.scrollY + (height-height2)/2}px`
-        // }
-        
       },
 
       onClickDocument(e) {
