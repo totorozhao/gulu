@@ -1,7 +1,7 @@
 <template>
   <div class="g-popover" ref="popover">
     <div ref="contentWrap" class="content-wrap" :class="{[`position-${position}`]:true}" v-if="visible" @click.stop>
-      <slot name="content"></slot>
+      <slot name="content" :close="close" frank="1"></slot>
     </div>
     <span ref="triggerWrap" style="display:inline-block;"> <slot></slot></span>
   </div>
@@ -127,11 +127,13 @@ $border-radius: 4px;
       transform: translateY(-100%);
       &::before{
         border-top-color:$border-color;
+        border-bottom: none;
         top:100%;
         left: 10px;
       }
       &::after{
         border-top-color:white;
+        border-bottom: none;
         top:calc(100% - 1px);
         left: 10px;
       }
@@ -141,11 +143,13 @@ $border-radius: 4px;
       margin-top: 10px;
       &::before{
         border-bottom-color:$border-color;
+        border-top: none;
         bottom:100%;
         left: 10px;
       }
       &::after{
         border-bottom-color:white;
+        border-top: none;
         bottom:calc(100% - 1px);
         left: 10px;
       }
@@ -156,12 +160,14 @@ $border-radius: 4px;
       margin-left: -10px;
       &::before{
         border-left-color:$border-color;
+        border-right: none;
         left: calc(100% + 1px);
         top:50%;
         transform: translateY(-50%);
       }
       &::after{
         border-left-color:white;
+        border-right: none;
         left: 100%;
         top:50%;
         transform: translateY(-50%);
@@ -172,12 +178,14 @@ $border-radius: 4px;
       margin-left: 10px;
       &::before{
         border-right-color:$border-color;
+        border-left: none;
         right: calc(100% + 1px);
         top:50%;
         transform: translateY(-50%);
       }
       &::after{
         border-right-color:white;
+        border-left: none;
         right: 100%;
         top:50%;
         transform: translateY(-50%);

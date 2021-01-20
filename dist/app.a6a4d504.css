@@ -293,6 +293,32 @@
   color: red;
 }
 
+.collapse[data-v-026186] {
+  border: 1px solid #cecece;
+  border-radius: 4px;
+}
+
+.collapse-item[data-v-694194] {
+  /* border: 1px solid $grey;
+  border-radius: $border-radius; */
+}
+.collapse-item .title[data-v-694194] {
+    border: 1px solid #cecece;
+    margin-left: -1px;
+    margin-top: -1px;
+    margin-right: -1px;
+    min-width: 32px;
+    display: flex;
+    align-items: center;
+}
+.collapse-item[data-v-694194]:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.collapse-item > .content[data-v-694194] {
+    padding: 8px;
+}
+
 .g-popover[data-v-74ac81] {
   display: inline-block;
   position: relative;
@@ -323,11 +349,13 @@
 }
 .content-wrap.position-top[data-v-74ac81]::before {
       border-top-color: #333;
+      border-bottom: none;
       top: 100%;
       left: 10px;
 }
 .content-wrap.position-top[data-v-74ac81]::after {
       border-top-color: white;
+      border-bottom: none;
       top: calc(100% - 1px);
       left: 10px;
 }
@@ -336,11 +364,13 @@
 }
 .content-wrap.position-bottom[data-v-74ac81]::before {
       border-bottom-color: #333;
+      border-top: none;
       bottom: 100%;
       left: 10px;
 }
 .content-wrap.position-bottom[data-v-74ac81]::after {
       border-bottom-color: white;
+      border-top: none;
       bottom: calc(100% - 1px);
       left: 10px;
 }
@@ -350,12 +380,14 @@
 }
 .content-wrap.position-left[data-v-74ac81]::before {
       border-left-color: #333;
+      border-right: none;
       left: calc(100% + 1px);
       top: 50%;
       transform: translateY(-50%);
 }
 .content-wrap.position-left[data-v-74ac81]::after {
       border-left-color: white;
+      border-right: none;
       left: 100%;
       top: 50%;
       transform: translateY(-50%);
@@ -365,12 +397,14 @@
 }
 .content-wrap.position-right[data-v-74ac81]::before {
       border-right-color: #333;
+      border-left: none;
       right: calc(100% + 1px);
       top: 50%;
       transform: translateY(-50%);
 }
 .content-wrap.position-right[data-v-74ac81]::after {
       border-right-color: white;
+      border-left: none;
       right: 100%;
       top: 50%;
       transform: translateY(-50%);

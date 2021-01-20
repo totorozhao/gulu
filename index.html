@@ -156,14 +156,18 @@
             </g-tabs>
         </div>
 
-        <div class="box" style="border: 1px solid red; text-align: center;" @click="yyy">
+        <div class="box" style="border: 1px solid red; text-align: center;">
             <g-popover position="top">
-                <div slot="content">他出身于望族，却与那些奢靡豪族的作派完全不同。今天和流浪汉和渔民们一块比喝酒、明天揍一顿欺负民女的公子哥。还有一次，只是选择了除夕在海上度过，便因为“新年放鞭炮”把豪族运粮的船给炸了。</div>
+                <template slot="content" slot-scope="{close}">
+                    他出身于望族，却与那些奢靡豪族的作派完全不同。今天和流浪汉和渔民们一块比喝酒、明天揍一顿欺负民女的公子哥。还有一次，
+                    只是选择了除夕在海上度过，便因为“新年放鞭炮”把豪族运粮的船给炸了。
+                   <g-button @click="close">关闭</g-button>
+                </template>
                 <g-button>点我 孙策</g-button>
             </g-popover>
 
             <g-popover position="bottom">
-                <div slot="content">会照顾好母亲和弟弟的。” 父亲奄奄一息倒在长城之下时，少年浑身颤抖着接过那杆枪。 “会一直、一直守护弟弟的。</div>
+                <div slot="content">会照顾好母亲和弟弟的。父亲奄奄一息倒在长城之下时，少年浑身颤抖着接过那杆枪。 “会一直、一直守护弟弟的。</div>
                 <g-button>点我 百里守约</g-button>
             </g-popover>
 
@@ -179,14 +183,14 @@
         </div>
 
 
-        <div class="box" style="border: 1px solid red; text-align: center;" @click="yyy">
+        <div class="box" style="border: 1px solid red; text-align: center;">
             <g-popover position="top" trigger="hover">
                 <div slot="content">他出身于望族，却与那些奢靡豪族的作派完全不同。今天和流浪汉和渔民们一块比喝酒、明天揍一顿欺负民女的公子哥。还有一次，只是选择了除夕在海上度过，便因为“新年放鞭炮”把豪族运粮的船给炸了。</div>
                 <g-button>点我 孙策</g-button>
             </g-popover>
 
             <g-popover position="bottom" trigger="hover">
-                <div slot="content">会照顾好母亲和弟弟的。” 父亲奄奄一息倒在长城之下时，少年浑身颤抖着接过那杆枪。 “会一直、一直守护弟弟的。</div>
+                <div slot="content">会照顾好母亲和弟弟的。父亲奄奄一息倒在长城之下时，少年浑身颤抖着接过那杆枪。 “会一直、一直守护弟弟的。</div>
                 <g-button>点我 百里守约</g-button>
             </g-popover>
 
@@ -200,6 +204,18 @@
                 <g-button>点我 貂蝉</g-button>
             </g-popover>
         </div>
+
+        <div class="box" style="width: 300px; margin:20px auto;">
+            <g-collapse :selected.sync="selectedCollapseName">
+                <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
+                <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
+                <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
+                <g-collapse-item title="标题4" name="4">内容4</g-collapse-item>
+            </g-collapse>
+            {{selectedCollapseName}}
+        </div>
+
+
     </div>
     <script src="src/app.js" type="module"></script>
     <script src="//at.alicdn.com/t/font_1775585_26o81clo988.js"></script>

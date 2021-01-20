@@ -13,6 +13,9 @@ import TabsHead from './tabs-head'
 import TabsBody from './tabs-body'
 import TabsPane from './tabs-pane'
 
+import Collapse from './collapse'
+import CollapseItem from './collapse-item'
+
 
 import Popover from './popover'
 
@@ -32,6 +35,11 @@ Vue.component('g-tabs-item', TabsItem)
 Vue.component('g-tabs-head', TabsHead)
 Vue.component('g-tabs-body', TabsBody)
 Vue.component('g-tabs-pane', TabsPane)
+Vue.component('g-collapse', Collapse)
+Vue.component('g-collapse-item', CollapseItem)
+
+
+
 
 Vue.component('g-popover', Popover)
 new Vue({
@@ -39,7 +47,8 @@ new Vue({
     data: {
         loading1: false,
         inputmessage: 'hello',
-        selectedTab: 'hero'
+        selectedTab: 'hero',
+        selectedCollapseName: ['1', '2']
     },
     methods: {
         showToast(position) {
@@ -55,6 +64,5 @@ new Vue({
                 }
             })
         },
-        yyy() { console.log('yyy') },
     }
 })
