@@ -57,7 +57,7 @@
 
 <body>
     <div id="app">
-        <!-- <div class="box">
+        <div class="box">
             <g-button>vue.js造轮子</g-button>
             <g-button icon="down" icon-position="left" :loading="loading1" @click="loading1 = !loading1">下载</g-button>
             <g-button icon="arrow-left" icon-position="left">左侧</g-button>
@@ -72,58 +72,58 @@
         <div class="box">
             <g-input v-model="inputmessage"></g-input>
             <p>{{inputmessage}}</p>
-            <g-input value="name" readonly></g-input>
-            <g-input value="loadtion" disabled></g-input>
-            <g-input value="hello" error='请输入中文'></g-input>
+            <g-input value="name" readonly=""></g-input>
+            <g-input value="loadtion" disabled=""></g-input>
+            <g-input value="hello" error="请输入中文"></g-input>
         </div>
         <div class="box" style="width:80vw;margin:10px auto;">
             <g-row>
-                <g-col :span='6'>
+                <g-col :span="6">
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
-                <g-col :span='6'>
+                <g-col :span="6">
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
-                <g-col :span='6'>
+                <g-col :span="6">
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
-                <g-col :span='6'>
+                <g-col :span="6">
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span='6'>
+                <g-col span="6">
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
-                <g-col span='6'>
+                <g-col span="6">
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
-                <g-col span='6'>
+                <g-col span="6">
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
-                <g-col span='6'>
+                <g-col span="6">
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span='6' :gutter="20">
+                <g-col span="6" :gutter="20">
                     <div class="grid-demo bg-dark">Col-2</div>
                 </g-col>
-                <g-col span='4' :gutter="20">
+                <g-col span="4" :gutter="20">
                     <div class="grid-demo bg-dark">Col-4</div>
                 </g-col>
-                <g-col span='14' :gutter="20">
+                <g-col span="14" :gutter="20">
                     <div class="grid-demo bg-dark">Col-18</div>
                 </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span='4'>
+                <g-col span="4">
                     <div class="grid-demo bg-dark">Col-4</div>
                 </g-col>
-                <g-col span='8' offset="2">
+                <g-col span="8" offset="2">
                     <div class="grid-demo bg-dark">Col-8</div>
                 </g-col>
-                <g-col span='8' offset="2">
+                <g-col span="8" offset="2">
                     <div class="grid-demo bg-dark">Col-8</div>
                 </g-col>
             </g-row>
@@ -134,8 +134,7 @@
             <g-button @click="showToast">点我弹框</g-button>
             <g-button @click="showToast('top')">点我弹框</g-button>
             <g-button @click="showToast('bottom')">点我弹框</g-button>
-        </div> -->
-
+        </div>
 
 
         <div class="box">
