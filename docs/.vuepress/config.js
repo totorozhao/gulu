@@ -20,6 +20,12 @@ module.exports = {
                 collapsable: false,
                 children: [
                     '/components/button',
+                    '/components/input',
+                    '/components/grid',
+                    '/components/layout',
+                    '/components/toast',
+                    '/components/tabs',
+                    '/components/popover',
                 ],
             },
 

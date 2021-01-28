@@ -107,6 +107,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 9999;
    &.position-top {
     top: 0;
     .toast{

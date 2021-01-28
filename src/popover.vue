@@ -114,6 +114,7 @@ $border-radius: 4px;
     transition: all 200ms;
     max-width: 20em;
     word-break: break-all;
+    z-index: 9999;
     &::before, &::after{
         content:'';
         display: block;

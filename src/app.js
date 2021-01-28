@@ -7,11 +7,11 @@ import Row from './row.vue'
 import Col from './col.vue'
 
 
-import Tabs from './tabs'
-import TabsItem from './tabs-item'
-import TabsHead from './tabs-head'
-import TabsBody from './tabs-body'
-import TabsPane from './tabs-pane'
+import Tabs from './tabs/tabs'
+import TabsItem from './tabs/tabs-item'
+import TabsHead from './tabs/tabs-head'
+import TabsBody from './tabs/tabs-body'
+import TabsPane from './tabs/tabs-pane'
 
 import Collapse from './collapse'
 import CollapseItem from './collapse-item'
