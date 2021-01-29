@@ -28,7 +28,11 @@
     components: {GTabs,GTabsHead,GTabsBody,GTabsPane,GTabsItem},
     data() {
       return {
-         content: `
+        selectedTab: 'hero',
+        content: `
+          data:{
+            selectedTab: 'hero'
+          }
           <g-tabs :selected.sync="selectedTab">
             <g-tabs-head>
                 <g-tabs-item name="culture">文化</g-tabs-item>
