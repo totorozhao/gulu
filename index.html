@@ -155,7 +155,7 @@
             </g-tabs>
         </div>
 
-        <div class="box" style="border: 1px solid red; text-align: center;">
+        <!-- <div class="box" style="border: 1px solid red; text-align: center;">
             <g-popover position="top">
                 <template slot="content" slot-scope="{close}">
                     他出身于望族，却与那些奢靡豪族的作派完全不同。今天和流浪汉和渔民们一块比喝酒、明天揍一顿欺负民女的公子哥。还有一次，
@@ -202,7 +202,7 @@
                 <div slot="content">你，会跳舞吗？ 满天花雨中，舞动着曼妙的身姿。无数眼光目不转睛。 一直跳下去吧…… </div>
                 <g-button>点我 貂蝉</g-button>
             </g-popover>
-        </div>
+        </div> -->
 
         <div class="box" style="width: 300px; margin:20px auto;">
             <g-collapse :selected.sync="selectedCollapseName">
@@ -214,6 +214,10 @@
             {{selectedCollapseName}}
         </div>
 
+
+        <div class="box" style="width: 300px; margin:20px auto;">
+            <g-cascader :source='source'></g-cascader>
+        </div>
 
     </div>
     <script src="src/app.js" type="module"></script>

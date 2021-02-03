@@ -19,6 +19,8 @@ import CollapseItem from './collapse-item'
 
 import Popover from './popover'
 
+import Cascader from './cascader'
+
 import plugin from './plugin.js'
 
 
@@ -37,6 +39,7 @@ Vue.component('g-tabs-body', TabsBody)
 Vue.component('g-tabs-pane', TabsPane)
 Vue.component('g-collapse', Collapse)
 Vue.component('g-collapse-item', CollapseItem)
+Vue.component('g-cascader', Cascader)
 
 
 
@@ -48,7 +51,16 @@ new Vue({
         loading1: false,
         inputmessage: 'hello',
         selectedTab: 'hero',
-        selectedCollapseName: ['1', '2']
+        selectedCollapseName: ['1', '2'],
+        source: [{
+                name: '四川',
+                children: [{ name: '成都', children: [{ name: '温江' }, { name: '武侯' }] }, { name: '南充' }]
+            },
+            {
+                name: '湖北',
+                children: [{ name: '武汉', children: [{ name: '武昌' }, { name: '汉口' }] }, { name: '襄阳' }]
+            }
+        ]
     },
     methods: {
         showToast(position) {
