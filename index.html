@@ -78,7 +78,7 @@
             <g-input value="loadtion" disabled></g-input>
             <g-input value="hello" error='请输入中文'></g-input>
         </div>
-        <div class="box" style="width:80vw;margin:10px auto;">
+        <!-- <div class="box" style="width:80vw;margin:10px auto;">
             <g-row>
                 <g-col :span='6'>
                     <div class="grid-demo bg-dark">Col-6</div>
@@ -130,7 +130,7 @@
                 </g-col>
             </g-row>
 
-        </div>
+        </div> -->
 
         <div class="box">
             <g-button @click="showToast">点我弹框</g-button>
@@ -216,7 +216,9 @@
 
 
         <div class="box" style="width: 300px; margin:20px auto;">
-            <g-cascader :source='source'></g-cascader>
+            <p>333333</p>
+            <g-cascader :source='source' :popover-height="height"></g-cascader>
+            <p>0000000</p>
         </div>
 
     </div>

@@ -76,59 +76,59 @@
             <g-input value="loadtion" disabled=""></g-input>
             <g-input value="hello" error="请输入中文"></g-input>
         </div>
-        <div class="box" style="width:80vw;margin:10px auto;">
+        <!-- <div class="box" style="width:80vw;margin:10px auto;">
             <g-row>
-                <g-col :span="6">
+                <g-col :span='6'>
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
-                <g-col :span="6">
+                <g-col :span='6'>
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
-                <g-col :span="6">
+                <g-col :span='6'>
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
-                <g-col :span="6">
+                <g-col :span='6'>
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span="6">
+                <g-col span='6'>
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
-                <g-col span="6">
+                <g-col span='6'>
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
-                <g-col span="6">
+                <g-col span='6'>
                     <div class="grid-demo bg-light">Col-6</div>
                 </g-col>
-                <g-col span="6">
+                <g-col span='6'>
                     <div class="grid-demo bg-dark">Col-6</div>
                 </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span="6" :gutter="20">
+                <g-col span='6' :gutter="20">
                     <div class="grid-demo bg-dark">Col-2</div>
                 </g-col>
-                <g-col span="4" :gutter="20">
+                <g-col span='4' :gutter="20">
                     <div class="grid-demo bg-dark">Col-4</div>
                 </g-col>
-                <g-col span="14" :gutter="20">
+                <g-col span='14' :gutter="20">
                     <div class="grid-demo bg-dark">Col-18</div>
                 </g-col>
             </g-row>
             <g-row :gutter="20">
-                <g-col span="4">
+                <g-col span='4'>
                     <div class="grid-demo bg-dark">Col-4</div>
                 </g-col>
-                <g-col span="8" offset="2">
+                <g-col span='8' offset="2">
                     <div class="grid-demo bg-dark">Col-8</div>
                 </g-col>
-                <g-col span="8" offset="2">
+                <g-col span='8' offset="2">
                     <div class="grid-demo bg-dark">Col-8</div>
                 </g-col>
             </g-row>
 
-        </div>
+        </div> -->
 
         <div class="box">
             <g-button @click="showToast">点我弹框</g-button>
@@ -214,7 +214,9 @@
 
 
         <div class="box" style="width: 300px; margin:20px auto;">
-            <g-cascader :source="source"></g-cascader>
+            <p>333333</p>
+            <g-cascader :source="source" :popover-height="height"></g-cascader>
+            <p>0000000</p>
         </div>
 
     </div>

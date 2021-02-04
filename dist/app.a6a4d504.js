@@ -13897,14 +13897,40 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var cascaderItem = {
-  name: 'cascaderItem',
+  name: "cascaderItem",
   components: {
     cascaderItem: cascaderItem
   },
   props: {
-    sourceItem: {
-      type: Object
+    items: {
+      type: Array
+    },
+    height: {
+      type: String
+    }
+  },
+  data: function data() {
+    return {
+      leftSelected: null
+    };
+  },
+  computed: {
+    rightItems: function rightItems() {
+      if (this.leftSelected && this.leftSelected.children) {
+        return this.leftSelected.children;
+      } else {
+        return null;
+      }
     }
   }
 };
@@ -13924,13 +13950,40 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "cascaderItem" },
-    _vm._l(_vm.sourceItem.childern, function(item, i) {
-      return _vm.sourceItem.childern
-        ? _c("cascader-item", { key: i, attrs: { sourceItem: item } })
+    { staticClass: "cascaderItem", style: { height: _vm.height } },
+    [
+      _c(
+        "div",
+        { staticClass: "left" },
+        _vm._l(_vm.items, function(item1) {
+          return _c(
+            "div",
+            {
+              on: {
+                click: function($event) {
+                  _vm.leftSelected = item1
+                }
+              }
+            },
+            [_vm._v("\n      " + _vm._s(item1.name) + "\n    ")]
+          )
+        }),
+        0
+      ),
+      _vm._v(" "),
+      _vm.rightItems
+        ? _c(
+            "div",
+            { staticClass: "right" },
+            [
+              _c("cascader-item", {
+                attrs: { items: _vm.rightItems, height: _vm.height }
+              })
+            ],
+            1
+          )
         : _vm._e()
-    }),
-    1
+    ]
   )
 }
 var staticRenderFns = []
@@ -13988,16 +14041,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default = {
   name: 'cascader',
   components: {
@@ -14006,6 +14049,9 @@ var _default = {
   props: {
     source: {
       type: Array
+    },
+    popoverHeight: {
+      type: String
     }
   },
   data: function data() {
@@ -14053,35 +14099,16 @@ exports.default = _default;
     ),
     _vm._v(" "),
     _vm.PopoverVisiable
-      ? _c("div", { staticClass: "popover" }, [
-          _c(
-            "div",
-            { staticClass: "level1" },
-            _vm._l(_vm.source, function(item1) {
-              return _c(
-                "div",
-                {
-                  on: {
-                    click: function($event) {
-                      _vm.level1Selected = item1
-                    }
-                  }
-                },
-                [_vm._v(_vm._s(item1.name))]
-              )
-            }),
-            0
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "level2" },
-            _vm._l(_vm.level1Items, function(item2) {
-              return _c("div", [_vm._v(_vm._s(item2.name))])
-            }),
-            0
-          )
-        ])
+      ? _c(
+          "div",
+          { staticClass: "popover-wraper" },
+          [
+            _c("cascader-item", {
+              attrs: { items: _vm.source, height: _vm.popoverHeight }
+            })
+          ],
+          1
+        )
       : _vm._e()
   ])
 }
@@ -14427,7 +14454,10 @@ new _vue.default({
           name: '武侯'
         }]
       }, {
-        name: '南充'
+        name: '南充',
+        children: [{
+          name: '顺庆区'
+        }]
       }]
     }, {
       name: '湖北',
@@ -14437,11 +14467,19 @@ new _vue.default({
           name: '武昌'
         }, {
           name: '汉口'
+        }, {
+          name: '汉阳'
         }]
       }, {
-        name: '襄阳'
+        name: '襄阳',
+        children: [{
+          name: '枣阳'
+        }, {
+          name: '南漳'
+        }]
       }]
-    }]
+    }],
+    height: '200px'
   },
   methods: {
     showToast: function showToast(position) {

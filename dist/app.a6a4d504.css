@@ -411,20 +411,29 @@
       transform: translateY(-50%);
 }
 
-.cascader .trigger[data-v-7f19ab] {
-  height: 32px;
-  border: 1px solid red;
-}
-.cascader .popover[data-v-7f19ab] {
+.cascaderItem[data-v-64928c] {
   height: 100px;
-  border: 1px solid red;
   display: flex;
 }
-.cascader .popover .level1[data-v-7f19ab] {
+.cascaderItem .left[data-v-64928c] {
     border: 1px solid green;
 }
-.cascader .popover .level2[data-v-7f19ab] {
-    border: 1px solid pink;
+.cascaderItem .right[data-v-64928c] {
+    border: 1px solid blue;
+}
+
+.cascader[data-v-7f19ab] {
+  position: relative;
+}
+.cascader .trigger[data-v-7f19ab] {
+    height: 32px;
+    border: 1px solid red;
+}
+.cascader .popover-wraper[data-v-7f19ab] {
+    /* border: 1px solid red; */
+    position: absolute;
+    left: 0;
+    background: #fff;
 }
 
 @keyframes slide-up-data-v-da4773 {
