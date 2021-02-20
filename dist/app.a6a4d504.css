@@ -416,10 +416,8 @@
   display: flex;
 }
 .cascaderItem .left[data-v-64928c] {
-    border: 1px solid green;
-}
-.cascaderItem .right[data-v-64928c] {
-    border: 1px solid blue;
+    padding: .3em 0;
+    overflow: auto;
 }
 
 .cascader[data-v-7f19ab] {
@@ -434,6 +432,7 @@
     position: absolute;
     left: 0;
     background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 3px 6px -4px, rgba(0, 0, 0, 0.08) 0px 6px 16px 0px, rgba(0, 0, 0, 0.05) 0px 9px 28px 8px;
 }
 
 @keyframes slide-up-data-v-da4773 {

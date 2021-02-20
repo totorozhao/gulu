@@ -45,6 +45,7 @@ Vue.component('g-cascader', Cascader)
 
 
 Vue.component('g-popover', Popover)
+import source from './DB.js'
 new Vue({
     el: '#app',
     data: {
@@ -52,15 +53,7 @@ new Vue({
         inputmessage: 'hello',
         selectedTab: 'hero',
         selectedCollapseName: ['1', '2'],
-        source: [{
-                name: '四川',
-                children: [{ name: '成都', children: [{ name: '温江' }, { name: '武侯' }] }, { name: '南充', children: [{ name: '顺庆区' }] }]
-            },
-            {
-                name: '湖北',
-                children: [{ name: '武汉', children: [{ name: '武昌' }, { name: '汉口' }, { name: '汉阳' }] }, { name: '襄阳', children: [{ name: '枣阳' }, { name: '南漳' }] }]
-            }
-        ],
+        source: source,
         height: '200px'
     },
     methods: {
