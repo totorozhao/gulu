@@ -414,10 +414,23 @@
 .cascaderItem[data-v-64928c] {
   height: 100px;
   display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1px solid red;
 }
 .cascaderItem .left[data-v-64928c] {
+    height: 100%;
     padding: .3em 0;
     overflow: auto;
+}
+.cascaderItem .right[data-v-64928c] {
+    height: 100%;
+    border-left: 1px solid #ccc;
+}
+.cascaderItem .label[data-v-64928c] {
+    padding: .3em 1em;
+    display: flex;
+    align-items: center;
 }
 
 .cascader[data-v-7f19ab] {

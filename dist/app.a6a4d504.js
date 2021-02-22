@@ -13933,8 +13933,10 @@ var cascaderItem = {
   },
   computed: {
     rightItems: function rightItems() {
-      if (this.leftSelected && this.leftSelected.children) {
-        return this.leftSelected.children;
+      var currentSelected = this.selected[this.level];
+
+      if (currentSelected && currentSelected.children) {
+        return currentSelected.children;
       } else {
         return null;
       }
@@ -13944,9 +13946,12 @@ var cascaderItem = {
     onClickLabel: function onClickLabel(item) {
       var copy = JSON.parse(JSON.stringify(this.selected));
       copy[this.level] = item;
+      copy.splice(this.level + 1);
       this.$emit('update:selected', copy);
     },
-    onUpdatedSelected: function onUpdatedSelected() {}
+    onUpdatedSelected: function onUpdatedSelected(newSelected) {
+      this.$emit('update:selected', newSelected);
+    }
   }
 };
 var _default = cascaderItem;
@@ -13970,28 +13975,21 @@ exports.default = _default;
       _c(
         "div",
         { staticClass: "left" },
-        [
-          _vm._v(
-            "\n      " +
-              _vm._s(_vm.selected && _vm.selected[_vm.level]) +
-              "\n    "
-          ),
-          _vm._l(_vm.items, function(item1, index) {
-            return _c(
-              "div",
-              {
-                key: index,
-                on: {
-                  click: function($event) {
-                    return _vm.onClickLabel(item1)
-                  }
+        _vm._l(_vm.items, function(item1, index) {
+          return _c(
+            "div",
+            {
+              key: index,
+              on: {
+                click: function($event) {
+                  return _vm.onClickLabel(item1)
                 }
-              },
-              [_vm._v("\n      " + _vm._s(item1.name) + "\n    ")]
-            )
-          })
-        ],
-        2
+              }
+            },
+            [_c("label", [_vm._v(_vm._s(item1.name))])]
+          )
+        }),
+        0
       ),
       _vm._v(" "),
       _vm.rightItems
