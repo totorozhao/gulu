@@ -69,7 +69,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    border: 1px solid red;
     .left {
         height: 100%;
         padding: .3em 0;

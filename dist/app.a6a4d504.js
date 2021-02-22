@@ -14094,12 +14094,10 @@ var _default = {
     };
   },
   computed: {
-    level1Items: function level1Items() {
-      if (this.level1Selected) {
-        return this.level1Selected.children;
-      } else {
-        return [];
-      }
+    result: function result() {
+      return this.selected.map(function (item) {
+        return item.name;
+      }).join('/');
     }
   }
 };
@@ -14127,8 +14125,7 @@ exports.default = _default;
           }
         }
       },
-      [_vm._t("default")],
-      2
+      [_vm._v("\n        " + _vm._s(_vm.result || " ") + "\n    ")]
     ),
     _vm._v(" "),
     _vm.PopoverVisiable
