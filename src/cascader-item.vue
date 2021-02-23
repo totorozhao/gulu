@@ -78,10 +78,11 @@
       height: 100%;
       border-left: 1px solid #ccc;
     }
-    .label{
+    label{
       padding: .3em 1em;
       display: flex;
       align-items: center;
+      white-space: nowrap;
     }
   }
 </style>

@@ -426,10 +426,11 @@
     height: 100%;
     border-left: 1px solid #ccc;
 }
-.cascaderItem .label[data-v-64928c] {
+.cascaderItem label[data-v-64928c] {
     padding: .3em 1em;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .cascader[data-v-7f19ab] {
@@ -442,6 +443,7 @@
     padding: 0 1em;
     min-width: 10em;
     border: 1px solid  #cecece;
+    white-space: nowrap;
 }
 .cascader .popover-wraper[data-v-7f19ab] {
     position: absolute;

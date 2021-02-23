@@ -53,6 +53,7 @@ export default {
         padding: 0 1em;
         min-width: 10em;
         border: 1px solid  #cecece;
+        white-space: nowrap;
     }
     .popover-wraper{
         position: absolute;
