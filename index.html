@@ -12,7 +12,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         html {
             --button-height: 32px;
             --font-size: 14px;
@@ -23,16 +23,16 @@
             --border-color: #999;
             --border-color-hover: #666;
         }
-
+        
         #app {
             margin-top: 20px;
         }
-
+        
         .box {
             margin-top: 40px;
-            overflow: hidden
+            /* overflow: hidden */
         }
-
+        
         .grid-demo {
             height: 40px;
             display: flex;
@@ -42,15 +42,15 @@
             font-weight: 500;
             color: rgba(255, 255, 255, 0.85);
         }
-
+        
         .row {
             margin-top: 20px;
         }
-
+        
         .bg-dark {
             background: rgb(24, 144, 255);
         }
-
+        
         .bg-light {
             background: rgb(64, 169, 255);
         }
@@ -78,7 +78,7 @@
             <g-input value="loadtion" disabled></g-input>
             <g-input value="hello" error='请输入中文'></g-input>
         </div>
-        <div class="box" style="width:80vw;margin:10px auto;">
+        <!-- <div class="box" style="width:80vw;margin:10px auto;">
             <g-row>
                 <g-col :span='6'>
                     <div class="grid-demo bg-dark">Col-6</div>
@@ -130,21 +130,99 @@
                 </g-col>
             </g-row>
 
-        </div>
+        </div> -->
 
         <div class="box">
-            <g-layout>
-                <g-header class=""></g-header>
-                <g-content class=""></g-content>
-                <g-footer></g-footer>
-            </g-layout>
+            <g-button @click="showToast">点我弹框</g-button>
+            <g-button @click="showToast('top')">点我弹框</g-button>
+            <g-button @click="showToast('bottom')">点我弹框</g-button>
         </div>
 
-        <div>
-            <button @click="showToast">点我</button>
+
+        <div class="box">
+            <!-- <g-tabs :selected='selectedTab' @update:selected='selectedTab = $event'> -->
+            <!-- <g-tabs :selected.sync="selectedTab">
+                <g-tabs-head>
+                    <g-tabs-item name="culture">文化</g-tabs-item>
+                    <g-tabs-item name="music" disabled>音乐</g-tabs-item>
+                    <g-tabs-item name="hero">英雄</g-tabs-item>
+                </g-tabs-head>
+                <g-tabs-body>
+                    <g-tabs-pane name="culture">文化内容</g-tabs-pane>
+                    <g-tabs-pane name="music">音乐内容</g-tabs-pane>
+                    <g-tabs-pane name="hero">英雄技能</g-tabs-pane>
+                </g-tabs-body>
+            </g-tabs> -->
         </div>
+
+        <!-- <div class="box" style="border: 1px solid red; text-align: center;">
+            <g-popover position="top">
+                <template slot="content" slot-scope="{close}">
+                    他出身于望族，却与那些奢靡豪族的作派完全不同。今天和流浪汉和渔民们一块比喝酒、明天揍一顿欺负民女的公子哥。还有一次，
+                    只是选择了除夕在海上度过，便因为“新年放鞭炮”把豪族运粮的船给炸了。
+                   <g-button @click="close">关闭</g-button>
+                </template>
+                <g-button>点我 孙策</g-button>
+            </g-popover>
+
+            <g-popover position="bottom">
+                <div slot="content">会照顾好母亲和弟弟的。父亲奄奄一息倒在长城之下时，少年浑身颤抖着接过那杆枪。 “会一直、一直守护弟弟的。</div>
+                <g-button>点我 百里守约</g-button>
+            </g-popover>
+
+            <g-popover position="left">
+                <div slot="content">江东魔道名门最后的继承者，骨子里却铭刻着出人意料的高傲和叛逆，未有一刻想过要顺从沉重的命运。如今，她似乎已再度抓住契机，去逆转不可能的过往。</div>
+                <g-button>点我 大乔</g-button>
+            </g-popover>
+
+            <g-popover position="right">
+                <div slot="content">你，会跳舞吗？ 满天花雨中，舞动着曼妙的身姿。无数眼光目不转睛。 一直跳下去吧…… </div>
+                <g-button>点我 貂蝉</g-button>
+            </g-popover>
+        </div>
+
+
+        <div class="box" style="border: 1px solid red; text-align: center;">
+            <g-popover position="top" trigger="hover">
+                <div slot="content">他出身于望族，却与那些奢靡豪族的作派完全不同。今天和流浪汉和渔民们一块比喝酒、明天揍一顿欺负民女的公子哥。还有一次，只是选择了除夕在海上度过，便因为“新年放鞭炮”把豪族运粮的船给炸了。</div>
+                <g-button>点我 孙策</g-button>
+            </g-popover>
+
+            <g-popover position="bottom" trigger="hover">
+                <div slot="content">会照顾好母亲和弟弟的。父亲奄奄一息倒在长城之下时，少年浑身颤抖着接过那杆枪。 “会一直、一直守护弟弟的。</div>
+                <g-button>点我 百里守约</g-button>
+            </g-popover>
+
+            <g-popover position="left" trigger="hover">
+                <div slot="content">江东魔道名门最后的继承者，骨子里却铭刻着出人意料的高傲和叛逆，未有一刻想过要顺从沉重的命运。如今，她似乎已再度抓住契机，去逆转不可能的过往。</div>
+                <g-button>点我 大乔</g-button>
+            </g-popover>
+
+            <g-popover position="right" trigger="hover">
+                <div slot="content">你，会跳舞吗？ 满天花雨中，舞动着曼妙的身姿。无数眼光目不转睛。 一直跳下去吧…… </div>
+                <g-button>点我 貂蝉</g-button>
+            </g-popover>
+        </div> -->
+
+        <div class="box" style="width: 300px; margin:20px auto;">
+            <g-collapse :selected.sync="selectedCollapseName">
+                <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
+                <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
+                <g-collapse-item title="标题3" name="3">内容3</g-collapse-item>
+                <g-collapse-item title="标题4" name="4">内容4</g-collapse-item>
+            </g-collapse>
+            {{selectedCollapseName}}
+        </div>
+
+
+        <div class="box" style="width: 300px; margin:20px auto;">
+            <p>111111</p>
+            <g-cascader :source='source' :popover-height="height"></g-cascader>
+            <p>0000000</p>
+        </div>
+
     </div>
-    <script src="src/app.js"></script>
+    <script src="src/app.js" type="module"></script>
     <script src="//at.alicdn.com/t/font_1775585_26o81clo988.js"></script>
 </body>
 

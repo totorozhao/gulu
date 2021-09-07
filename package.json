@@ -1,38 +1,42 @@
 {
-  "name": "gulu",
-  "version": "0.0.1",
-  "description": "UI框架",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"parcel index.html --no-cache"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/totorozhao/gulu.git"
-  },
-  "keywords": [
-    "vue",
-    "ui"
-  ],
-  "author": "zhaojj",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/totorozhao/gulu/issues"
-  },
-  "homepage": "https://github.com/totorozhao/gulu#readme",
-  "dependencies": {
-    "button": "^1.1.1",
-    "node-sass": "^4.9.3",
-    "vue": "^2.6.11",
-    "vue-hot-reload-api": "^2.3.4"
-  },
-  "devDependencies": {
-    "@vue/component-compiler-utils": "^3.1.2",
-    "parcel-bundler": "^1.12.4",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "alias": {
-    "vue": "./node_modules/vue/dist/vue.common.js"
-  }
+    "name": "gulu",
+    "version": "0.0.1",
+    "description": "UI框架",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "parcel index.html --no-cache",
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/totorozhao/gulu.git"
+    },
+    "keywords": [
+        "vue",
+        "ui"
+    ],
+    "author": "zhaojj",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/totorozhao/gulu/issues"
+    },
+    "homepage": "https://github.com/totorozhao/gulu#readme",
+    "dependencies": {
+        "button": "^1.1.1",
+        "node-sass": "^5.0.0",
+        "parcel-bundler": "^1.12.5",
+        "vue": "^2.6.11",
+        "vue-hot-reload-api": "^2.3.4"
+    },
+    "devDependencies": {
+        "@vue/component-compiler-utils": "^3.1.2",
+        "sass-loader": "^10.1.1",
+        "vue-template-compiler": "^2.6.11",
+        "vuepress": "^1.8.0"
+    },
+    "alias": {
+        "vue": "./node_modules/vue/dist/vue.common.js"
+    }
 }
