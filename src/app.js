@@ -40,7 +40,8 @@ new Vue({
         selectedTab: 'hero',
         selectedCollapseName: ['1', '2'],
         source: source,
-        height: '200px'
+        height: '200px',
+        selected: []
     },
     methods: {
         showToast(position) {

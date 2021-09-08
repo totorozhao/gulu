@@ -59,7 +59,7 @@
 
 <body>
     <div id="app">
-        <div class="box">
+        <!-- <div class="box">
             <g-button>vue.js造轮子</g-button>
             <g-button icon="down" icon-position="left" :loading="loading1" @click="loading1 = !loading1">下载</g-button>
             <g-button icon="arrow-left" icon-position="left">左侧</g-button>
@@ -70,14 +70,14 @@
                 <g-button>1</g-button>
                 <g-button icon="arrow-right" icon-position="right">下一页</g-button>
             </g-button-group>
-        </div>
-        <div class="box">
+        </div> -->
+        <!-- <div class="box">
             <g-input v-model="inputmessage"></g-input>
             <p>{{inputmessage}}</p>
             <g-input value="name" readonly></g-input>
             <g-input value="loadtion" disabled></g-input>
             <g-input value="hello" error='请输入中文'></g-input>
-        </div>
+        </div> -->
         <!-- <div class="box" style="width:80vw;margin:10px auto;">
             <g-row>
                 <g-col :span='6'>
@@ -132,11 +132,11 @@
 
         </div> -->
 
-        <div class="box">
+        <!-- <div class="box">
             <g-button @click="showToast">点我弹框</g-button>
             <g-button @click="showToast('top')">点我弹框</g-button>
             <g-button @click="showToast('bottom')">点我弹框</g-button>
-        </div>
+        </div> -->
 
 
         <div class="box">
@@ -204,7 +204,7 @@
             </g-popover>
         </div> -->
 
-        <div class="box" style="width: 300px; margin:20px auto;">
+        <!-- <div class="box" style="width: 300px; margin:20px auto;">
             <g-collapse :selected.sync="selectedCollapseName">
                 <g-collapse-item title="标题1" name="1">内容1</g-collapse-item>
                 <g-collapse-item title="标题2" name="2">内容2</g-collapse-item>
@@ -212,12 +212,18 @@
                 <g-collapse-item title="标题4" name="4">内容4</g-collapse-item>
             </g-collapse>
             {{selectedCollapseName}}
-        </div>
+        </div> -->
 
 
         <div class="box" style="width: 300px; margin:20px auto;">
-            <p>111111</p>
-            <g-cascader :source='source' :popover-height="height"></g-cascader>
+            <p>{{selected[0] && selected[0].name || '空'}}</p>
+            <p>{{selected[1] && selected[1].name || '空'}}</p>
+            <p>{{selected[2] && selected[2].name || '空'}}</p>
+            <g-cascader :source='source'
+            :popover-height="height"
+            :selected="selected"
+            @update:selected="selected = $event"
+            ></g-cascader>
             <p>0000000</p>
         </div>
 
