@@ -1,16 +1,27 @@
 <template>
   <div class="cascaderItem" :style="{height:height}">
     <div class="left">
-      <div class="label" v-for="(item1,index) in items" @click="onClickLabel(item1)" :key="index">
-        <span class="name">{{ item1.name }}</span>
-        <template>
-           <icon class="next" v-if="rightItems" name="arrow-right"></icon>
-        </template>
+      <div class="label" v-for="(item,index) in items" @click="onClickLabel(item)" :key="index">
+        <span class="name">{{ item.name }}</span>
+        <span class="icons">
+          <template v-if="item.name === loadingItem.name">
+            <icon class="loading" name="loading"></icon>
+          </template>
+          <template v-else>
+            <icon class="next" v-if="rightArrowVisible(item)" name="arrow-right"></icon>
+          </template>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-        <cascader-item :level="level+1" :items="rightItems" :height="height"
-         :selected="selected" @update:selected="onUpdatedSelected"></cascader-item>
+      <cascader-item
+        :level="level+1"
+        :items="rightItems"
+        :height="height"
+        :load-data="loadData"
+        :loading-item="loadingItem"
+        :selected="selected" 
+        @update:selected="onUpdatedSelected">
+      </cascader-item>
     </div>
   </div>
 </template>
@@ -36,7 +47,14 @@ import Icon from './icon.vue'
       level: {
         type: Number,
         default: 0
-      }
+      },
+      loadData: {
+        type: Function
+      },
+      loadingItem: {
+        type: Object,
+        default: () => ({})
+      },
     },
     data() {
       return {
@@ -45,21 +63,24 @@ import Icon from './icon.vue'
     },
     computed: {
       rightItems() {
-        console.log(currentSelected, 'ccc')
-        let currentSelected = this.selected[this.level]
-        console.log(currentSelected, 'ccc')
-        if (currentSelected && currentSelected.children) {
-          return currentSelected.children
-        } else {
-          return null
+        if (this.selected[this.level]) {
+          let selected = this.items.filter((item) => item.name === this.selected[this.level].name)
+          if (selected && selected[0].children && selected[0].children.length > 0) {
+            console.log(selected[0].children, 'rightItems')
+            return selected[0].children
+          }
         }
       },
+      
     },
     methods: {
+      rightArrowVisible (item) {
+        return this.loadData ? !item.isLeaf : item.children
+      },
       onClickLabel(item){
         let copy = JSON.parse(JSON.stringify(this.selected))
         copy[this.level] = item
-        copy.splice(this.level+1) // 清除层级后面的值
+        copy.splice(this.level + 1) // 清除层级后面的值
         this.$emit('update:selected',copy)
       },
       onUpdatedSelected(newSelected){
@@ -91,13 +112,13 @@ import Icon from './icon.vue'
       align-items: center;
       white-space: nowrap;
       &:hover {
-        background: #ddd;
+        background: #eee;
       }
       > .name {
         margin-right: 1em;
         user-select: none;
       }
-      .icon {
+      .icons {
         margin-left: auto;
         .next {
           transform: scale(0.5);

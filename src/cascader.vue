@@ -8,6 +8,8 @@
         :items="source"
         :height="popoverHeight"
         :selected="selected"
+        :loadData="loadData"
+        :loading-item="loadingItem"
         @update:selected="onUpdateSelected"
       ></cascader-item>
     </div>
@@ -31,11 +33,14 @@ export default {
       type: Array,
       default: () => [],
     },
+    loadData: {
+      type: Function
+    }
   },
   data() {
     return {
       PopoverVisiable: false,
-      level1Selected: null,
+      loadingItem: {},
     };
   },
   computed: {
@@ -44,70 +49,71 @@ export default {
     },
   },
   methods: {
-    // onClickDocument() {
-    //   console.log('click')
-    // },
-    // open() {
-    //   this.PopoverVisiable = true
-    //   this.$nextTick(()=> {
-    //     document.addEventListener("click", this.onClickDocument)
-    //   })
-    // },
-    // close() {
-    //   this.PopoverVisiable = false
-    // },
-    // toggle () {
-    //   if (this.PopoverVisiable === true) {
-    //     this.close()
-    //   } else {
-    //     this.open()
-    //   }
-    // }
+    onClickDocument(e) {
+      console.log('click')
+    },
+    open() {
+      this.PopoverVisiable = true
+      this.$nextTick(()=> {
+        document.addEventListener("click", this.onClickDocument)
+      })
+    },
+    close() {
+      this.PopoverVisiable = false
+    },
+    toggle () {
+      if (this.PopoverVisiable === true) {
+        this.close()
+      } else {
+        this.open()
+      }
+    },
     onUpdateSelected (newSelected) {
       this.$emit('update:selected', newSelected)
       let lastItem = newSelected[newSelected.length - 1]
-      // let simplest = (children, id) => {
-      //   return children.filter(item => item.id === id)[0]
-      // }
-      // let complex = (children, id) => {
-      //   let noChildren = []
-      //   let hasChildren = []
-      //   children.forEach(item => {
-      //     if (item.children) {
-      //       hasChildren.push(item)
-      //     } else {
-      //       noChildren.push(item)
-      //     }
-      //   })
-      //   let found = simplest(noChildren, id)
-      //   if (found) {
-      //     return found
-      //   } else {
-      //     found = simplest(hasChildren, id)
-      //     if (found) { return found }
-      //     else {
-      //       for (let i = 0; i < hasChildren.length; i++) {
-      //         found = complex(hasChildren[i].children, id)
-      //         if (found) {
-      //           return found
-      //         }
-      //       }
-      //       return undefined
-      //     }
-      //   }
-      //   }
-      // let updateSource = (result) => {
-      //   this.loadingItem = {}
-      //   let copy = JSON.parse(JSON.stringify(this.source))
-      //   let toUpdate = complex(copy, lastItem.id)
-      //   toUpdate.children = result
-      //   this.$emit('update:source', copy)
-      // }
-      // if (!lastItem.isLeaf && this.loadData) {
-      //   this.loadData(lastItem, updateSource) // 回调:把别人传给我的函数调用一下
-      //   // 调回调的时候传一个函数,这个函数理论应该被调用
-      //   this.loadingItem = lastItem
-      // }
+      let simplest = (children, id) => {
+        return children.filter(item => item.id === id)[0]
+      }
+      let complex = (children, id) => {
+        let noChildren = []
+        let hasChildren = []
+        children.forEach(item => {
+          if (item.children) {
+            hasChildren.push(item)
+          } else {
+            noChildren.push(item)
+          }
+        })
+        let found = simplest(noChildren, id)
+        if (found) {
+          return found
+        } else {
+          found = simplest(hasChildren, id)
+          if (found) { return found }
+          else {
+            for (let i = 0; i < hasChildren.length; i++) {
+              found = complex(hasChildren[i].children, id)
+              if (found) {
+                return found
+              }
+            }
+            return undefined
+          }
+        }
+        }
+      let updateSource = (result) => {
+        this.loadingItem = {}
+        let copy = JSON.parse(JSON.stringify(this.source))
+        let toUpdate = complex(copy, lastItem.id)
+        toUpdate.children = result
+        console.log(result, 'result')
+        this.$emit('update:source', copy)
+      }
+      if (!lastItem.isLeaf && this.loadData) {
+        this.loadData(lastItem, updateSource) // 回调:把别人传给我的函数调用一下
+        // 调回调的时候传一个函数,这个函数理论应该被调用
+        this.loadingItem = lastItem
+      }
     }
   }
 };

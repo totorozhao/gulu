@@ -64,7 +64,6 @@
             <g-button icon="down" icon-position="left" :loading="loading1" @click="loading1 = !loading1">下载</g-button>
             <g-button icon="arrow-left" icon-position="left">左侧</g-button>
             <g-button icon="arrow-right" icon-position="right">右侧</g-button>
-
             <g-button-group>
                 <g-button icon="arrow-left" icon-position="left">上一页</g-button>
                 <g-button>1</g-button>
@@ -219,10 +218,11 @@
             <p>{{selected[0] && selected[0].name || '空'}}</p>
             <p>{{selected[1] && selected[1].name || '空'}}</p>
             <p>{{selected[2] && selected[2].name || '空'}}</p>
-            <g-cascader :source='source'
+            <g-cascader :source.sync='source'
             :popover-height="height"
             :selected="selected"
             @update:selected="selected = $event"
+            :load-data="loadData"
             ></g-cascader>
             <p>0000000</p>
         </div>
